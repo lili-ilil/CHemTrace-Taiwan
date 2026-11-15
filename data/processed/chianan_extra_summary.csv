@@ -1,0 +1,10 @@
+﻿item,value,unit,n,note
+PM10,36.2,µg/m³,4,"median of station means, complete years of 2023-2025"
+PM2.5,16.7,µg/m³,4,"median of station means, complete years of 2023-2025"
+river SS,19.6,mg/L,69,0% below detection
+river pH,8.06,,69,0% below detection
+river As,6.75,µg/L,45,0% below detection
+river Hg,,µg/L,31,96% below detection
+river Pb,,µg/L,42,75% below detection
+soil pH class (median),6.6-7.3,,,area-weighted
+soil drainage class (largest share),good,,,91% of area

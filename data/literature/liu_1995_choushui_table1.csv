@@ -1,0 +1,5 @@
+﻿well_pair,distance_m,older_14C_age_yr,younger_14C_age_yr,age_difference_yr,velocity_m_yr,source
+"C-2, C-3",6000,6350,4150,2200,2.7,"Liu T.-K. (1995) Radiocarbon 37(2):531-542, Table 1 (p. 534); conventional (uncorrected) 14C ages of DIC; confined aquifer below the Huchi aquitard, western Choushui fan delta"
+"C-1, C-2",6500,16700,6350,10350,0.63,"Liu T.-K. (1995) Radiocarbon 37(2):531-542, Table 1 (p. 534); conventional (uncorrected) 14C ages of DIC; confined aquifer below the Huchi aquitard, western Choushui fan delta"
+"B-2, B-4",13000,7860,5600,2260,5.8,"Liu T.-K. (1995) Radiocarbon 37(2):531-542, Table 1 (p. 534); conventional (uncorrected) 14C ages of DIC; confined aquifer below the Huchi aquitard, western Choushui fan delta"
+"D-3, D-6",13000,18000,10750 (printed '0750'; 18000-7250),7250,1.8,"Liu T.-K. (1995) Radiocarbon 37(2):531-542, Table 1 (p. 534); conventional (uncorrected) 14C ages of DIC; confined aquifer below the Huchi aquitard, western Choushui fan delta"
