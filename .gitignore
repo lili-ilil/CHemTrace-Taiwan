@@ -1,0 +1,24 @@
+# API keys and other secrets
+.secret/
+.secrets/
+*.key
+
+# raw downloads (large; republished only as processed data with attribution)
+data/raw/
+
+# Python
+__pycache__/
+*.pyc
+
+# journal articles: copyrighted, keep only the reading notes (文獻/*.md)
+文獻/*.pdf
+# local downloads and files waiting to be deleted
+下載/
+_to_delete/
+# system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# upload batches for the GitHub web page (copies of the files above)
+_github_upload/
