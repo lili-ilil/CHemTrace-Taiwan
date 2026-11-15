@@ -1,3 +1,0 @@
-
-
-Contact: litail@ethz.ch
