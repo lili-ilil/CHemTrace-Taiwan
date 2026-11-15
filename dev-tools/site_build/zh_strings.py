@@ -119,6 +119,12 @@ HTML = [
     ("<tr><td>Air</td>", "<tr><td>空氣</td>"),
     (">WHO drinking-water guideline<", ">WHO 飲用水準則<"), (">inorganic Hg<", ">無機汞<"),
     (">Dietary reference<", ">飲食參考值<"), (">Cancer classification<", ">致癌分類<"),
+    # sources
+    ('<div class="sec-head"><h2>Sources</h2></div>', '<div class="sec-head"><h2>參考資料</h2></div>'),
+    (">Taiwan regulations<", ">台灣法規<"), (">Taiwan data (Open Government Data License, version 1.0)<", ">台灣資料（政府資料開放授權條款第 1 版）<"),
+    (">Taiwan literature<", ">台灣文獻<"), (">Methods and health references<", ">方法與健康參考資料<"),
+    (">Some comparison values in the results (marked “Measured”) still come from Swiss studies used by the original CHemTrace; they are being replaced with Taiwan measurements.<",
+     ">結果中部分對照值（標示「實測對照」）仍來自原版 CHemTrace 使用的瑞士研究，會陸續換成台灣的實測資料。<"),
     # data section, roadmap
     ("<p>Open government datasets (Open Government Data License, version 1.0) that the Taiwan version uses or will use. Coordinates are TWD97 (EPSG:3826).</p>",
      "<p>台灣版已使用或將使用的政府開放資料（政府資料開放授權條款第 1 版）。座標為 TWD97（EPSG:3826）。</p>"),
@@ -274,6 +280,18 @@ T = {
         "嘉南平原幾乎所有監測井都超過 0.01 mg/L，較深的含水層可達約 1.2 mg/L（Chen & Liu 2007, TAO 18:975）。地下水污染管制標準第一類為 0.050 mg/L，第二類為 0.50 mg/L。",
     "Taiwan groundwater control standard for Pb: 0.010 mg/L (class 1), 0.10 mg/L (class 2); drinking water 0.01 mg/L.":
         "台灣地下水污染管制標準（鉛）：0.010 mg/L（第一類）、0.10 mg/L（第二類）；飲用水 0.01 mg/L。",
+    # soil map (step_grid.py)
+    "Topsoil pH": "表土 pH", "class": "分級", "Drainage": "排水", "Texture, 0–30 cm": "質地（0–30 cm）", "Lime": "石灰性",
+    "good": "良好", "imperfect": "不完全", "poor": "不良", "very poor": "極不良", "flooded": "浸水",
+    "sand, coarse sand": "砂土、粗砂土", "fine sand, loamy sand": "細砂土、壤質砂土", "sandy loam": "砂質壤土", "very fine sand, very fine sandy loam": "極細砂土、極細砂質壤土",
+    "silt, silt loam": "坋土、坋質壤土", "loam": "壤土", "sandy clay loam": "砂質粘壤土", "clay loam, silty clay loam": "粘壤土、坋質粘壤土", "silty clay": "坋質粘土", "clay": "粘土", "gravel": "石礫",
+    "not calcareous": "無石灰性", "calcareous": "石灰性", "lime nodules": "石灰結核",
+    "– (no detailed soil map at this point; it covers mainly farmland)": "–（這個點沒有詳細土壤圖；土壤圖主要涵蓋農地）",
+    "Climate, aquifer, land use": "氣候、含水層、土地利用", "Taiwan data grid: only the soil map so far": "台灣資料網格：目前只有土壤圖",
+    "MOA detailed soil map (2016)": "農業部詳細土壤圖（2016）",
+    "Fill soil values and set the source location": "填入土壤數值並設為污染源位置", "Site source": "場址出處",
+    "Soil values come from the soil map polygon at this point or within 250 m of it; check them against a site sample.": "土壤數值取自這個點或 250 m 內最近的土壤圖圖斑；請和場址採樣比對。",
+    "The Taiwan data grid has only the soil map so far; this point sets where the source is.": "台灣資料網格目前只有土壤圖；這個點用來設定污染源位置。",
     "Pause": "暫停", "Play": "播放", "❚❚ Pause": "❚❚ 暫停", "▶ Play": "▶ 播放",
 }
 

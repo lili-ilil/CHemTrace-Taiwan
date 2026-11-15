@@ -1,0 +1,44 @@
+{
+ "crs": "EPSG:3826",
+ "x0": 154500.0,
+ "y1": 2799000.0,
+ "res": 250,
+ "ncols": 731,
+ "nrows": 1498,
+ "generated": "2026-11-15",
+ "source": "MOA detailed soil map 詳測土壤圖 2016-10-13 (data.gov.tw 55747), Open Government Data License 1.0",
+ "layers": [
+  {
+   "name": "soil_ph",
+   "type": "u8",
+   "scale": 1,
+   "offset": 0,
+   "nodata": 0,
+   "byteOffset": 0
+  },
+  {
+   "name": "soil_drain",
+   "type": "u8",
+   "scale": 1,
+   "offset": 0,
+   "nodata": 0,
+   "byteOffset": 1095038
+  },
+  {
+   "name": "soil_tex",
+   "type": "u8",
+   "scale": 1,
+   "offset": 0,
+   "nodata": 0,
+   "byteOffset": 2190076
+  },
+  {
+   "name": "soil_lime",
+   "type": "u8",
+   "scale": 1,
+   "offset": 0,
+   "nodata": 0,
+   "byteOffset": 3285114
+  }
+ ]
+}

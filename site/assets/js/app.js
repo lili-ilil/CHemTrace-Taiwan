@@ -2060,7 +2060,7 @@ function fieldHTML(f){
   } else {
     ctl = `<input id="${id}" data-k="${f.k}" type="number" step="any" inputmode="decimal" value="${v === "" || v == null ? "" : v}"${f.optional ? ` placeholder="${esc(tr(f.ph || "calculated"))}"` : ""}>`;
   }
-  return `<div class="fld"><label for="${id}">${esc(lab)}${unit ? `<span class="u">${esc(unit)}</span>` : ""}</label>${ctl}${(typeof f.help === "function" ? f.help(INP) : f.help) ? `<span class="help">${esc(tr(typeof f.help === "function" ? f.help(INP) : f.help))}</span>` : ""}${isAssumed(f.k) ? `<span class="asm" title="${esc(tr("No Taiwan source: a generic default. Replace it with site data."))}">${tr("ASSUMED · no Taiwan source")}</span>` : (presetSrc(f.k) && INP.preset !== "custom" ? `<span class="src psrc">${tr("Preset source")}: ${esc(presetSrc(f.k))}</span>` : "")}${f.src ? `<span class="src">${esc(f.src)}</span>` : ""}<span class="err" hidden></span></div>`;
+  return `<div class="fld"><label for="${id}">${esc(lab)}${unit ? `<span class="u">${esc(unit)}</span>` : ""}</label>${ctl}${(typeof f.help === "function" ? f.help(INP) : f.help) ? `<span class="help">${esc(tr(typeof f.help === "function" ? f.help(INP) : f.help))}</span>` : ""}${isAssumed(f.k) ? `<span class="asm" title="${esc(tr("No Taiwan source: a generic default. Replace it with site data."))}">${tr("ASSUMED · no Taiwan source")}</span>` : (INP.siteSrc && INP.siteSrc[f.k] ? `<span class="src psrc">${tr("Site source")}: ${esc(INP.siteSrc[f.k])}</span>` : presetSrc(f.k) && INP.preset !== "custom" ? `<span class="src psrc">${tr("Preset source")}: ${esc(presetSrc(f.k))}</span>` : "")}${f.src ? `<span class="src">${esc(f.src)}</span>` : ""}<span class="err" hidden></span></div>`;
 }
 function renderForm(){
   $("#advTabs").innerHTML = TABS.map(t => `<button role="tab" id="tab-${t.id}" data-tab="${t.id}" aria-selected="${S.tab === t.id}" aria-controls="tp-${t.id}" tabindex="${S.tab === t.id ? 0 : -1}">${esc(t.label)}</button>`).join("");
@@ -2095,6 +2095,7 @@ function sanitize(src){
   if(!src || typeof src !== "object") return out;
   if(src.preset === "custom") out.preset = "custom";
   if(Array.isArray(src.assumed)) out.assumed = src.assumed.filter(k => typeof k === "string").slice(0, 80);
+  if(src.siteSrc && typeof src.siteSrc === "object") out.siteSrc = Object.fromEntries(Object.entries(src.siteSrc).filter(([k, v]) => typeof v === "string").slice(0, 20).map(([k, v]) => [k, v.slice(0, 200)]));
   if(typeof src.siteName === "string") out.siteName = src.siteName.slice(0, 80);
   for(const f of FIELDS){
     const v = src[f.k]; if(v === undefined) continue;
@@ -2119,6 +2120,7 @@ function schedule(){ clearTimeout(advTimer); advTimer = setTimeout(() => { refre
 const fieldDef = k => FIELDS.find(f => f.k === k);
 function setVal(f, v){ if(f.perMetal) INP[f.k][S.metal] = v; else INP[f.k] = v; }
 function markCustom(k){
+  if(INP.siteSrc && INP.siteSrc[k]){ INP.siteSrc = Object.assign({}, INP.siteSrc); delete INP.siteSrc[k]; }
   if(Array.isArray(INP.assumed)) INP.assumed = INP.assumed.filter(a => a !== k && a !== k + "." + S.metal);
   const box = document.getElementById("f-" + k); const fl = box && box.closest(".fld"); if(fl) fl.querySelectorAll(".asm, .psrc").forEach(e => e.remove());
   if(!SITE_KEYS.has(k) || INP.preset === "custom") return;
@@ -2146,7 +2148,7 @@ function initAdv(){
   $("#goAdv").addEventListener("click", () => { if(!S.adv) setMode(true); $("#adv").scrollIntoView({behavior: reduceMotion ? "auto" : "smooth", block:"start"}); });
   $("#applyPreset").addEventListener("click", () => {
     const id = $("#presetSel").value; if(!PRESETS[id]) return;
-    Object.assign(INP, clone(PRESETS[id].v), {preset:id, siteName:"", srcE:"", srcN:"", assumed:assumedOf(id)}); renderForm(); refreshAll(); saveAdv();
+    Object.assign(INP, clone(PRESETS[id].v), {preset:id, siteName:"", srcE:"", srcN:"", assumed:assumedOf(id), siteSrc:{}}); renderForm(); refreshAll(); saveAdv();
   });
   $("#loadExample").addEventListener("click", () => loadExample(true));
   $("#budTSeg").innerHTML = BUD_T.map(t => `<button role="radio" aria-checked="false" data-t="${t}">${t} yr</button>`).join("");
@@ -2282,9 +2284,18 @@ function twd97ToWgs(E, N){
   return {lat: phi * 180 / Math.PI, lng: T.lon0 + Math.atan2(Math.sinh(y), Math.cos(x)) * 180 / Math.PI};
 }
 const inTaiwan = ll => ll.lat > TW_BOUNDS[0][0] && ll.lat < TW_BOUNDS[1][0] && ll.lng > TW_BOUNDS[0][1] && ll.lng < TW_BOUNDS[1][1];
+// MOA detailed soil map (詳測土壤圖 2016-10-13) code book, as rasterised by tools/build_soil_grid.py
+const SOIL_PH = [null, [null, 4.5, "below 4.5"], [4.6, 5.0], [5.1, 5.5], [5.6, 6.0], [6.1, 6.5], [6.6, 7.3], [7.4, 7.8], [7.9, 8.4], [8.5, 9.0], [9.1, null, "above 9.1"]];
+const SOIL_DRAIN = [null, ["good", "well"], ["imperfect", "periodic"], ["poor", "periodic"], ["very poor", "perm"], ["flooded", "perm"]];
+const SOIL_TEX = [null, "sand, coarse sand", "fine sand, loamy sand", "sandy loam", "very fine sand, very fine sandy loam", "silt, silt loam", "loam", "sandy clay loam", "clay loam, silty clay loam", "silty clay", "clay", "gravel"];
+const SOIL_LIME = [null, "not calcareous", "calcareous", "lime nodules"];
+const phTxt = c => SOIL_PH[c] ? (SOIL_PH[c][2] || `${SOIL_PH[c][0].toFixed(1)}–${SOIL_PH[c][1].toFixed(1)}`) : "";
+const phMid = c => { const p = SOIL_PH[c]; if(!p) return null; return p[0] == null ? p[1] : p[1] == null ? p[0] : Math.round((p[0] + p[1]) * 5) / 10; };
 function readSite(E, N){
   const ll = twd97ToWgs(E, N);
-  return {E:Math.round(E), N:Math.round(N), lat:ll.lat, lng:ll.lng, inside:inTaiwan(ll)};
+  const v = k => { const s = GRID.ok ? sampleGrid(k, E, N, 1) : null; return s ? s.v : null; };
+  const soil = GRID.ok ? {ph:v("soil_ph"), drain:v("soil_drain"), tex:v("soil_tex"), lime:v("soil_lime")} : null;
+  return {E:Math.round(E), N:Math.round(N), lat:ll.lat, lng:ll.lng, inside:inTaiwan(ll), soil: soil && soil.ph ? soil : null};
 }
 const r2 = x => x == null ? null : Math.round(x * 100) / 100;
 function siteRows(s){
@@ -2292,7 +2303,14 @@ function siteRows(s){
   const add = (k, v, src) => rows.push(`<tr><td>${esc(tr(k))}</td><td>${tr(v)}</td><td>${esc(tr(src))}</td></tr>`);
   add("Coordinates", `E ${s.E.toLocaleString("en-US")}, N ${s.N.toLocaleString("en-US")}`, "TWD97 / TM2 121° (EPSG:3826)");
   add("Latitude, longitude", `${s.lat.toFixed(5)}° N, ${s.lng.toFixed(5)}° E`, "converted (TWD97 ≈ WGS84)");
-  add("Climate, soil, aquifer, land use", "– (enter them in the tabs below)", "Taiwan data grid not built yet");
+  const so = s.soil, SRC = "MOA detailed soil map (2016)";
+  if(so){
+    add("Topsoil pH", `${phTxt(so.ph)} <span class="mini">(${tr("class")})</span>`, SRC);
+    if(so.drain) add("Drainage", tr(SOIL_DRAIN[so.drain][0]), SRC);
+    if(so.tex) add("Texture, 0–30 cm", tr(SOIL_TEX[so.tex]), SRC);
+    if(so.lime) add("Lime", tr(SOIL_LIME[so.lime]), SRC);
+  } else add("Soil", "– (no detailed soil map at this point; it covers mainly farmland)", SRC);
+  add("Climate, aquifer, land use", "– (enter them in the tabs below)", "Taiwan data grid: only the soil map so far");
   return rows.join("");
 }
 function showSite(s){
@@ -2301,18 +2319,25 @@ function showSite(s){
   if(!s.inside){ info.innerHTML = `<p>${tr("This point is outside Taiwan. Pick a place in Taiwan, Penghu, Kinmen or Matsu.")}</p>`; btn.disabled = true; return; }
   const notes = [];
   if(s.lng < 120) notes.push("Penghu, Kinmen and Matsu officially use TM2 zone 119 (EPSG:3825). This site uses zone 121 everywhere so that distances stay consistent; convert zone-119 coordinates before typing them in.");
-  info.innerHTML = `<table class="sp-table"><tbody>${siteRows(s)}</tbody></table>${notes.length ? `<ul class="sp-notes">${notes.map(n => `<li>${esc(n)}</li>`).join("")}</ul>` : ""}<p class="mini">${tr("The Taiwan data grid (precipitation, soil, aquifer, land use) is planned; until then this point only sets where the source is.")}</p>`;
-  btn.disabled = false;
+  info.innerHTML = `<table class="sp-table"><tbody>${siteRows(s)}</tbody></table>${notes.length ? `<ul class="sp-notes">${notes.map(n => `<li>${esc(n)}</li>`).join("")}</ul>` : ""}<p class="mini">${tr(s.soil ? "Soil values come from the soil map polygon at this point or within 250 m of it; check them against a site sample." : "The Taiwan data grid has only the soil map so far; this point sets where the source is.")}</p>`;
+  btn.disabled = false; btn.textContent = tr(s.soil ? "Fill soil values and set the source location" : "Use as the source location");
   $("#spE").value = s.E; $("#spN").value = s.N;
   if(map){
     if(mapMarker) mapMarker.setLatLng([s.lat, s.lng]);
     else mapMarker = window.L.circleMarker([s.lat, s.lng], {radius:8, className:"sp-marker"}).addTo(map);
   }
 }
-function pickTwd97(E, N){ showSite(readSite(E, N)); }
+async function pickTwd97(E, N){ await loadGrid(); showSite(readSite(E, N)); }
 function applySite(){
   const s = SITE; if(!s || !s.inside) return;
   INP.srcE = s.E; INP.srcN = s.N; INP.siteName = `E ${s.E}, N ${s.N}`; SP.fitKey = "";
+  if(s.soil){
+    const so = s.soil, here = `MOA detailed soil map (2016) at E ${s.E}, N ${s.N}`, src = INP.siteSrc = Object.assign({}, INP.siteSrc);
+    const mid = phMid(so.ph);
+    if(mid != null){ INP.pH = mid; src.pH = `${here}: topsoil pH class ${phTxt(so.ph)}, ${SOIL_PH[so.ph][0] == null || SOIL_PH[so.ph][1] == null ? "class limit" : "class midpoint"} used`; }
+    if(so.drain){ INP.drain = SOIL_DRAIN[so.drain][1]; src.drain = `${here}: drainage ${SOIL_DRAIN[so.drain][0]} (mapped by CHemTrace to the water regime)`; }
+    if(Array.isArray(INP.assumed)) INP.assumed = INP.assumed.filter(k => !(k in src));
+  }
   renderForm(); refreshAll(); saveAdv();
   $("#spApply").textContent = tr("Source location set ✓");
   setTimeout(() => { $("#spApply").textContent = tr("Use as the source location"); }, 1800);
