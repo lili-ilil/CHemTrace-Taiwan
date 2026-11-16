@@ -1,6 +1,6 @@
 """Step 4 (part 1): Taiwan geography. Runs after step_cr.py.
 
-- Glacier melt is no longer offered as a release type (Taiwan has no glaciers; decision of 16 Nov 2026). The code stays,
+- Glacier melt is no longer offered as a release type, and the Explore scene has no glacier any more (Taiwan has no glaciers; decision of 16 Nov 2026). The code stays,
   so the selfTest can still check it, but saved inputs with medium "glacier" fall back to soil (sanitize() keeps only
   menu values).
 - Chianan groundwater Hg and Pb background set to 0 (decision of 16 Nov 2026): MOENV regional groundwater monitoring
@@ -38,6 +38,15 @@ PATCHES = [
     (JS, '      ok("Pb Kd follows log Kd = 1.99 + 0.42·pH",',
          '      ok("Cd aquifer Kd with 12,350 mg/L chloride is about 0.05 of the chloride-free value (PHREEQC check: 0.044)", Math.abs(kdFn("Cd", {pH:7, cl:12350}) / kdFn("Cd", {pH:7}) - 0.051) < 0.002, "free-ion fraction");\n'
          '      ok("Pb Kd follows log Kd = 1.99 + 0.42·pH",'),
+    # Explore scene: glacier removed (Taiwan has no glaciers; the winter snow cap on the high peaks stays)
+    ("index.html", '    <!-- glacier -->\n    <path class="s-glacier" d="M146,98 L205,58 L240,72 L290,118 L330,155 L352,176 L340,180 L300,152 L252,116 L210,96 L170,108 Z"/>\n', "    <!-- glacier removed: Taiwan has no glaciers (step_coast.py) -->\n"),
+    ("index.html", '    <g class="s-crev"><path d="M262,112 l10,10"/><path d="M284,128 l9,10"/><path d="M306,146 l8,9"/><path d="M226,96 l9,8"/></g>\n', ""),
+    ("index.html", '    <text x="300" y="84" class="lbl">Glacier</text>\n', ""),
+    ("index.html", '    <path class="hit" data-c="glacier" pointer-events="all" d="M140,98 L205,54 L242,68 L292,114 L332,151 L358,176 L340,184 L300,156 L252,120 L210,100 L170,112 Z"/>\n', ""),
+    (JS, 'const ORDER = ["air","glacier","bedrock",', 'const ORDER = ["air","bedrock",'),
+    (JS, '\n ["air_glacier","air","glacier","deposition","M600,142 C520,122 400,92 262,96"],', ""),
+    (JS, '\n ["glacier_river","glacier","river","meltwater","M352,178 C380,205 410,232 440,258 S500,315 530,340 S570,378 600,402"],', ""),
+    (JS, '\n ["glacier_air","glacier","air","snow re-emission","M236,74 C262,46 304,40 360,52"],', ""),
 ]
 
 BD = " (below detection, not a measured zero)"

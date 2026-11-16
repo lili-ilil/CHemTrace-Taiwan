@@ -1013,7 +1013,47 @@ window.CHT_ZH = {
 "suboxic": "次缺氧",
 "sulfidic": "硫化物還原",
 "O2 or NO3 (O2 unknown)": "O2 或 NO3（未測溶氧）",
-"O2 or suboxic (O2 unknown)": "O2 或次缺氧（未測溶氧）"
+"O2 or suboxic (O2 unknown)": "O2 或次缺氧（未測溶氧）",
+"Deposition:": "沉降：",
+"Sample these soils first, then decide on removal, cover or use restrictions.": "先採集這些土壤，再決定移除、覆蓋或限制使用。",
+"Possibly above": "可能超過",
+"Set the prevailing wind (Air & surface tab) to see which side of the stack gets most.": "設定盛行風向（空氣與地表分頁），才看得出煙囪哪一側沉降最多。",
+"Soil at the source:": "污染源的土壤：",
+"Soil at the source (footprint average):": "污染源的土壤（範圍平均）：",
+"Soil at the source (roadside strip):": "污染源的土壤（路旁帶）：",
+"Investigate this area first for removal or cover.": "優先調查這個範圍，決定移除或覆蓋。",
+"Downslope:": "下坡：",
+"A river release follows the river, not the land: see the mass budget for where it settles.": "釋放到河川時隨河水移動，不在陸地上擴散：沉積位置請看質量收支。",
+"Karst:": "喀斯特：",
+"water runs through conduits to springs, often kilometres away within days, so a plume shape would mislead. Find out which springs drain the area (from tracer tests, if any were run) and sample them after heavy rain.": "水經由管道流到泉水，常在幾天內流到數公里外，污染團的形狀會誤導。先查出這一帶的水流到哪些泉水（如果做過示蹤試驗），大雨後採樣。",
+"Groundwater:": "地下水：",
+"set the flow direction to draw where the plume goes.": "設定流向後才能畫出污染團的去向。",
+"Check wells and springs in the red zone first.": "優先檢查紅色範圍內的水井和泉水。",
+"Possibly above the limit": "可能超過標準",
+"Fractured rock: the plume is drawn as if the rock were evenly porous. Real flow follows fractures, so treat the shape as a rough corridor.": "裂隙岩：污染團是當作岩石均勻多孔畫出來的。實際水流沿著裂隙，請把形狀當成大概的通道。",
+"Turn on": "開啟",
+"Drinking-water source protection zones": "輔助圖層的「飲用水水源水質保護區」",
+"in the support layers to see whether a protection zone or an intake lies in the coloured area.": "，查看彩色範圍內是否有保護區或取水口。",
+"groundwater pollution control standard (class 1)": "地下水污染管制標準（第一類）",
+"groundwater pollution control standard (class 2)": "地下水污染管制標準（第二類）",
+"soil monitoring standard for food-crop farmland": "食用作物農地的土壤污染監測標準",
+"soil monitoring standard": "土壤污染監測標準",
+"N": "北",
+"NNE": "北北東",
+"NE": "東北",
+"ENE": "東北東",
+"E": "東",
+"ESE": "東南東",
+"SE": "東南",
+"SSE": "南南東",
+"S": "南",
+"SSW": "南南西",
+"SW": "西南",
+"WSW": "西南西",
+"W": "西",
+"WNW": "西北西",
+"NW": "西北",
+"NNW": "北北西"
 },
 "p": [
 [
@@ -1223,6 +1263,90 @@ window.CHT_ZH = {
 [
 "^(.+), O2 unknown$",
 "$1 還原，未測溶氧"
+],
+[
+"^no Taiwan soil standard for (.+?) on this land use, so the map shows no soil zone\\.$",
+"這種土地利用沒有$1的台灣土壤標準，所以地圖不畫土壤範圍。"
+],
+[
+"^Topsoil above the (.+?) \\((.+?) mg/kg\\)$",
+"表土超過$1（$2 mg/kg）"
+],
+[
+"^up to (.+?) m from the stack by year (\\d+), furthest towards the (.+?)\\.$",
+"：到第 $2 年，距煙囪最遠 $1 m，最遠在$3方。"
+],
+[
+"^up to (.+?) m from the stack by year (\\d+)\\.$",
+"：到第 $2 年，距煙囪最遠 $1 m。"
+],
+[
+"^no topsoil above the (.+?) \\((.+?) mg/kg\\) at the best estimate by year (\\d+)\\.$",
+"依最佳估計，到第 $3 年沒有表土超過$1（$2 mg/kg）。"
+],
+[
+"^\\(at least 10% of runs\\): up to (.+?) m\\. Measure bulk deposition there \\(Bergerhoff samplers\\) to narrow it down\\.$",
+"（至少 10% 的模擬）：最遠 $1 m。在那裡測量總沉降量（Bergerhoff 採樣器）以縮小範圍。"
+],
+[
+"^Soil pollution control standard for food-crop farmland \\((.+) mg/kg\\)$",
+"食用作物農地的土壤污染管制標準（$1 mg/kg）"
+],
+[
+"^Soil pollution monitoring standard for food-crop farmland: (.+) mg/kg \\(control standard (.+) mg/kg\\)$",
+"食用作物農地的土壤污染監測標準（$1 mg/kg；管制標準 $2 mg/kg）"
+],
+[
+"^Soil pollution control standard \\((.+) mg/kg\\)$",
+"土壤污染管制標準（$1 mg/kg）"
+],
+[
+"^Soil pollution monitoring standard: (.+) mg/kg \\(control standard (.+) mg/kg\\)$",
+"土壤污染監測標準（$1 mg/kg；管制標準 $2 mg/kg）"
+],
+[
+"^(.+?) mg/kg over (.+?), above the (.+)\\.$",
+"$2 範圍內 $1 mg/kg，超過$3。"
+],
+[
+"^(.+?) mg/kg over (.+?), below the Taiwan soil standards\\.$",
+"$2 範圍內 $1 mg/kg，低於台灣土壤標準。"
+],
+[
+"^(.+?) kg washed off by year (\\d+)(.*)\\. Sample the field edge and where the path flattens\\.$",
+"到第 $2 年沖走 $1 kg$3。採集田邊和逕流路徑變平緩處的樣品。"
+],
+[
+"^Background groundwater \\((.+?) µg/L\\) already exceeds the (.+?), so the zones show where the release adds at least 10% of the limit on top\\.$",
+"地下水背景值（$1 µg/L）已超過$2，所以範圍顯示的是釋放再增加至少標準 10% 的地方。"
+],
+[
+"^Groundwater above the (.+?) \\((.+?) µg/L\\):$",
+"地下水超過$1（$2 µg/L）："
+],
+[
+"^up to (.+?) m downstream and (.+?) m wide by year (\\d+)(.*)\\.$",
+"到第 $3 年，下游最遠 $1 m、寬 $2 m$4。"
+],
+[
+"^no zone above the (.+?) at the best estimate by year (\\d+)(.*)\\.$",
+"依最佳估計，到第 $2 年沒有超過$1的範圍$3。"
+],
+[
+"^\\(at least 10% of runs\\): up to (.+?) m downstream\\. Consider monitoring wells at the edge of the amber zone\\.$",
+"（至少 10% 的模擬）：下游最遠 $1 m。可考慮在黃色範圍邊緣設監測井。"
+],
+[
+"^Seepage needs more than a million years to reach the water table by slow matrix flow\\. Swiss shooting-range data show metals can arrive in decades through fast paths: test that with the fast-path share \\(Budget & floods tab\\)\\.$",
+"入滲水以緩慢的基質流需要超過一百萬年才到達地下水位。瑞士靶場資料顯示，金屬可能經由優勢流在數十年內到達：可用優勢流比例測試（質量收支與洪水分頁）。"
+],
+[
+"^Seepage needs about (.+?) years to reach the water table by slow matrix flow\\. Swiss shooting-range data show metals can arrive in decades through fast paths: test that with the fast-path share \\(Budget & floods tab\\)\\.$",
+"入滲水以緩慢的基質流約需 $1 年才到達地下水位。瑞士靶場資料顯示，金屬可能經由優勢流在數十年內到達：可用優勢流比例測試（質量收支與洪水分頁）。"
+],
+[
+"^(.+?) moves only about (.+?) per century in this aquifer, so any zone stays close to the source\\.$",
+"$1在這個含水層每世紀只移動約 $2，所以範圍都會留在污染源附近。"
 ]
 ]
 };

@@ -14,7 +14,7 @@ function tr(s){
 function trNodes(root){
   if(!ZH || !root) return;
   const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT); let n; const todo = [];
-  while((n = w.nextNode())){ const t = n.nodeValue, s = t.trim(); if(s && /[A-Za-z]/.test(s)){ const z = tr(s); if(z !== s) todo.push([n, t.replace(s, z)]); } }
+  while((n = w.nextNode())){ const t = n.nodeValue, s = t.trim(); if(s && /[A-Za-z]/.test(s)){ const z = tr(s); if(z !== s) todo.push([n, /[㐀-鿿]/.test(z) ? z : t.replace(s, z)]); } }
   todo.forEach(([n, v]) => { n.nodeValue = v; });
 }
 // translate the strings of a data table in place; identifiers (keys such as k, id, tab) and option values stay as they are
@@ -405,18 +405,16 @@ const C = {
   Cr:{"forms": [["Dissolved chromate Cr(VI)", "Mobile in oxic aquifers"], ["Cr(III) on aquifer sediment", "Formed where Fe(II) or sulfide is present"]], "what": "Cr(VI) moves almost with the groundwater in oxic aquifers; in anoxic aquifers iron(II) and sulfide reduce it to Cr(III), which stays on the sediment.", "risk": ["high", "Wells downgradient of plating sites can exceed the drinking-water standard."], "trap": ["Monitor wells downgradient", "Reduce Cr(VI) in place"], "inputs": ["aquifer redox", "Kd"], "tw": "Taiwan drinking-water standard for total Cr: 0.05 mg/L. Groundwater control standard: 0.050 mg/L (class 1), 0.50 mg/L (class 2)."}
  }
 };
-const ORDER = ["air","glacier","bedrock","forest","farm","site","town","wwtp","river","lake","sediment","gw","people"];
+const ORDER = ["air","bedrock","forest","farm","site","town","wwtp","river","lake","sediment","gw","people"];
 
 /* ================= PATHWAYS ================= */
 // [id, from, to, process, d]
 const PATHS = [
  ["stack_air","town","air","emission","M892,298 C886,248 836,206 762,180 S652,152 600,142"],
- ["air_glacier","air","glacier","deposition","M600,142 C520,122 400,92 262,96"],
  ["air_forest","air","forest","deposition","M640,160 C580,190 506,228 462,262"],
  ["air_farm","air","farm","deposition","M700,170 C690,250 660,320 640,378"],
  ["air_lake","air","lake","deposition","M770,170 C890,210 1010,300 1070,390"],
  ["air_people","air","people","inhalation","M830,200 C825,270 815,320 808,352"],
- ["glacier_river","glacier","river","meltwater","M352,178 C380,205 410,232 440,258 S500,315 530,340 S570,378 600,402"],
  ["river_lake","river","lake","river inflow","M600,402 C660,416 720,404 780,410 S880,418 940,410 S975,405 1000,404"],
  ["bedrock_gw","bedrock","gw","fracture flow","M200,330 C240,420 320,500 430,540 S600,530 700,505"],
  ["bedrock_river","bedrock","river","weathering & springs","M300,322 C330,318 360,300 404,226"],
@@ -436,7 +434,6 @@ const PATHS = [
  ["lake_people","lake","people","fish & drinking water","M1110,472 C1020,430 900,390 840,372"],
  ["soil_air","farm","air","re-emission","M652,380 C642,320 632,260 620,200"],
  ["farm_people","farm","people","crops & soil contact","M690,384 C730,372 760,368 786,372"],
- ["glacier_air","glacier","air","snow re-emission","M236,74 C262,46 304,40 360,52"],
  ["lake_air","lake","air","evasion","M1150,388 C1150,340 1140,290 1120,240"]
 ];
 const GWPATHS = new Set(["bedrock_gw","forest_gw","farm_gw","site_gw","gw_lake","gw_people"]);
@@ -3049,37 +3046,38 @@ function renderSpreadAct(c, f, t, soilTxt){
   const I = INP, m = S.metal, T = SP.terrain, L = [], lim = spreadLimit(m), ser = RES.ser.find(p => p.t === t);
   const yr = `${t} year${t > 1 ? "s" : ""}`;
   if(soilTxt && soilTxt.dep){
-    const df = soilTxt.dep, towards = I.windFrom !== "" ? `, furthest towards the ${compass((Number(I.windFrom) + 180) % 360)}` : "";
-    if(!df.lim) L.push(`<b>Deposition:</b> no Swiss soil value for ${METALS[m].name.toLowerCase()} on this land use, so the map shows no soil zone.`);
-    else if(df.rB > 0) L.push(`<b>Topsoil above the ${df.limName} (${fmt(df.lim)} mg/kg)</b> up to ${fmt(Math.round(df.rB))} m from the stack by year ${t}${towards}. <b>Sample these soils first, then decide on removal, cover or use restrictions.</b>`);
-    else L.push(`<b>Deposition:</b> no topsoil above the ${df.limName} (${fmt(df.lim)} mg/kg) at the best estimate by year ${t}.`);
+    const df = soilTxt.dep, towards = I.windFrom !== "" ? `, furthest towards the ${tr(compass((Number(I.windFrom) + 180) % 360))}` : "";
+    if(!df.lim) L.push(`<b>Deposition:</b> no Taiwan soil standard for ${tr(METALS[m].name).toLowerCase()} on this land use, so the map shows no soil zone.`);
+    else if(df.rB > 0) L.push(`<b>Topsoil above the ${tr(df.limName)} (${fmt(df.lim)} mg/kg)</b> up to ${fmt(Math.round(df.rB))} m from the stack by year ${t}${towards}. <b>Sample these soils first, then decide on removal, cover or use restrictions.</b>`);
+    else L.push(`<b>Deposition:</b> no topsoil above the ${tr(df.limName)} (${fmt(df.lim)} mg/kg) at the best estimate by year ${t}.`);
     if(df.rP > df.rB * 1.2 + 10) L.push(`<b>Possibly above</b> (at least 10% of runs): up to ${fmt(Math.round(df.rP))} m. Measure bulk deposition there (Bergerhoff samplers) to narrow it down.`);
     if(I.windFrom === "") L.push("Set the prevailing wind (Air & surface tab) to see which side of the stack gets most.");
   }
   if(soilTxt && soilTxt.conc != null){
     const st = soilTxt.ss, area = soilTxt.A >= 1e6 ? `${fmt(soilTxt.A / 1e6)} km²` : `${fmt(soilTxt.A)} m²`;
-    L.push(st[0] === "crit" || st[0] === "warn" ? `<b>Soil at the source${I.medium === "air" ? " (footprint average)" : I.medium === "road" ? " (roadside strip)" : ""}:</b> ${fmt(soilTxt.conc)} mg/kg over ${area}, above the ${esc(st[2].replace(/: ([\d,.]+ mg\/kg)$/, " ($1)"))}. <b>Investigate this area first for removal or cover.</b>` : `<b>Soil at the source:</b> ${fmt(soilTxt.conc)} mg/kg over ${area}, below the Taiwan soil standards.`);
+    L.push(st[0] === "crit" || st[0] === "warn" ? `<b>Soil at the source${I.medium === "air" ? " (footprint average)" : I.medium === "road" ? " (roadside strip)" : ""}:</b> ${fmt(soilTxt.conc)} mg/kg over ${area}, above the ${esc(tr(st[2].replace(/: ([\d,.]+ mg\/kg)$/, " ($1)")))}. <b>Investigate this area first for removal or cover.</b>` : `<b>Soil at the source:</b> ${fmt(soilTxt.conc)} mg/kg over ${area}, below the Taiwan soil standards.`);
   }
   if(soilLike(I) && ser){
     const dk = ser.B.down + ser.B.fp;
     if(dk > 0) L.push(`<b>Downslope:</b> ${fmt(dk)} kg washed off by year ${t}${T ? ` along the ${fmt(Math.round(T.pathLen / 10) * 10)} m runoff path${T.stop === "stream" ? " to the stream" : ""}` : ""}. Sample the field edge and where the path flattens.`);
   }
   if(c && c.why === "river") L.push("A river release follows the river, not the land: see the mass budget for where it settles.");
-  else if(c && c.why === "karst") L.push("<b>Karst:</b> water runs through conduits to springs, often kilometres away within days, so a plume shape would mislead. Turn on <b>Tracer tests</b> to see where tracer tests were run nearby; their results (which springs the water reached, and how fast) are held by the canton. Sample springs after heavy rain.");
+  else if(c && c.why === "karst") L.push("<b>Karst:</b> water runs through conduits to springs, often kilometres away within days, so a plume shape would mislead. Find out which springs drain the area (from tracer tests, if any were run) and sample them after heavy rain.");
   else if(c && c.why === "nodir") L.push("<b>Groundwater:</b> set the flow direction to draw where the plume goes.");
   else if(f){
     const pre = c.dir.src === "user" ? "" : " (direction from terrain, not yet set by you)";
-    if(f.bgOver) L.push(`Background groundwater (${fmt(c.PC.bg)} µg/L) already exceeds the ${esc(lim.name)}, so the zones show where the release adds at least 10% of the limit on top.`);
-    if(f.zB) L.push(`<b>Groundwater above the ${esc(lim.name)} (${lim.v} µg/L):</b> up to ${fmt(Math.round(f.zB.len))} m downstream and ${fmt(Math.round(f.zB.wid))} m wide by year ${t}${pre}. <b>Check wells and springs in the red zone first.</b>`);
-    else L.push(`<b>Groundwater:</b> no zone above the ${esc(lim.name)} at the best estimate by year ${t}${pre}.`);
+    if(f.bgOver) L.push(`Background groundwater (${fmt(c.PC.bg)} µg/L) already exceeds the ${esc(tr(lim.name))}, so the zones show where the release adds at least 10% of the limit on top.`);
+    if(f.zB) L.push(`<b>Groundwater above the ${esc(tr(lim.name))} (${lim.v} µg/L):</b> up to ${fmt(Math.round(f.zB.len))} m downstream and ${fmt(Math.round(f.zB.wid))} m wide by year ${t}${pre}. <b>Check wells and springs in the red zone first.</b>`);
+    else L.push(`<b>Groundwater:</b> no zone above the ${esc(tr(lim.name))} at the best estimate by year ${t}${pre}.`);
     if(f.zP && (!f.zB || f.zP.len > f.zB.len * 1.2 + f.dx)) L.push(`<b>Possibly above the limit</b> (at least 10% of runs): up to ${fmt(Math.round(f.zP.len))} m downstream. Consider monitoring wells at the edge of the amber zone.`);
-    if(soilLike(I) && I.aq === "porous" && !(I.fastShare > 0) && c.oC.tArr > t) L.push(`Seepage needs ${c.oC.tArr > 1e6 ? "more than a million" : "about " + fmt(c.oC.tArr)} years to reach the water table by slow matrix flow. Shooting-range data show metals can arrive in decades through fast paths: test that with the fast-path share (Budget & floods tab).`);
-    if(c.PC.vr * 100 < 5) L.push(`${METALS[m].name} moves only about ${c.PC.vr * 100 < 1 ? fmt(c.PC.vr * 1e4) + " cm" : fmt(c.PC.vr * 100) + " m"} per century in this aquifer, so any zone stays close to the source.`);
+    if(soilLike(I) && I.aq === "porous" && !(I.fastShare > 0) && c.oC.tArr > t) L.push(`Seepage needs ${c.oC.tArr > 1e6 ? "more than a million" : "about " + fmt(c.oC.tArr)} years to reach the water table by slow matrix flow. Swiss shooting-range data show metals can arrive in decades through fast paths: test that with the fast-path share (Budget & floods tab).`);
+    if(c.PC.vr * 100 < 5) L.push(`${tr(METALS[m].name)} moves only about ${c.PC.vr * 100 < 1 ? fmt(c.PC.vr * 1e4) + " cm" : fmt(c.PC.vr * 100) + " m"} per century in this aquifer, so any zone stays close to the source.`);
     if(I.aq === "fractured") L.push("Fractured rock: the plume is drawn as if the rock were evenly porous. Real flow follows fractures, so treat the shape as a rough corridor.");
   }
-  L.push("Check whether drinking-water source protection zones or water intakes lie in the coloured area; the Taiwan protection-zone layer is planned.");
+  L.push("Turn on <b>Drinking-water source protection zones</b> in the support layers to see whether a protection zone or an intake lies in the coloured area.");
   SP.act = L.map(x => x.replace(/<[^>]+>/g, ""));
   $("#spAct").innerHTML = L.map(x => `<li>${x}</li>`).join("");
+  trNodes($("#spAct"));
 }
 
 /* ================= FORMS BY PHASE: five condition scenarios ================= */

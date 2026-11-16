@@ -160,10 +160,8 @@
     </g>
     <g class="s-glint"><circle cx="134" cy="296" r="2.4"/><circle cx="148" cy="324" r="2.4"/><circle cx="194" cy="318" r="2.4"/><circle cx="170" cy="352" r="2.4"/><circle cx="210" cy="348" r="2.4"/><circle cx="242" cy="368" r="2.4"/></g>
 
-    <!-- glacier -->
-    <path class="s-glacier" d="M146,98 L205,58 L240,72 L290,118 L330,155 L352,176 L340,180 L300,152 L252,116 L210,96 L170,108 Z"/>
+    <!-- glacier removed: Taiwan has no glaciers (step_coast.py) -->
     <path class="s-snow" d="M168,82 L205,58 L240,72 L262,92 L238,90 L214,78 L190,90 Z"/>
-    <g class="s-crev"><path d="M262,112 l10,10"/><path d="M284,128 l9,10"/><path d="M306,146 l8,9"/><path d="M226,96 l9,8"/></g>
 
     <!-- forest -->
     <path class="s-soil" d="M330,155 L575,382 L575,396 L326,166 Z"/>
@@ -225,7 +223,6 @@
 
     <!-- labels -->
     <text x="1060" y="62" class="lbl">大氣</text>
-    <text x="300" y="84" class="lbl">冰河</text>
     <text x="70" y="452" class="lbl">基岩與礦脈</text>
     <text x="488" y="244" class="lbl">森林土壤</text>
     <text x="604" y="362" class="lbl">農地</text>
@@ -256,7 +253,6 @@
     <path class="hit" data-c="town" pointer-events="all" d="M845,290 L904,290 L904,438 L845,438 Z"/>
     <path class="hit" data-c="wwtp" pointer-events="all" d="M905,378 L952,378 L944,426 L905,426 Z"/>
     <path class="hit" data-c="forest" pointer-events="all" d="M366,166 L575,354 L575,396 L326,166 Z"/>
-    <path class="hit" data-c="glacier" pointer-events="all" d="M140,98 L205,54 L242,68 L292,114 L332,151 L358,176 L340,184 L300,156 L252,120 L210,100 L170,112 Z"/>
     <path class="hit" data-c="lake" pointer-events="all" d="M975,382 L1200,382 L1200,540 L1130,540 C1060,535 1000,490 945,420 Z"/>
     <path class="hit" data-c="sediment" pointer-events="all" d="M945,420 C1000,490 1060,535 1130,540 L1200,540 L1200,560 L1124,560 C1048,555 985,505 935,428 Z"/>
     <path class="hit river-hit" data-c="river" pointer-events="stroke" d="M352,178 C380,205 410,232 440,258 S500,315 530,340 S570,378 600,402 C660,416 720,404 780,410 S880,418 940,410 S975,405 1000,404"/>
@@ -333,7 +329,7 @@
           </ul>
         </div>
       </div>
-      <div class="sp-act"><h4>該處理的地方：第 <span id="spActT">10</span></h4><ul class="trap" id="spAct"></ul></div>
+      <div class="sp-act"><h4>第 <span id="spActT">10</span> 年該處理的地方</h4><ul class="trap" id="spAct"></ul></div>
       <p class="sp-note">A screening picture to plan where to look, sample and act, not a map of measured contamination. Groundwater spread: Domenico (1987) screening plume with your aquifer inputs. Deposition from air: long-term plume averaged over wind sectors, with dry and wet deposition by particle size. Terrain and streams: not yet available for Taiwan (elevation grid planned).</p>
     </div>
     <div class="budget" id="budget">

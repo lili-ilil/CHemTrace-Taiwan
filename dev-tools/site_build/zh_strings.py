@@ -56,7 +56,7 @@ HTML = [
     (">Look up<", ">查詢<"), (">No site chosen yet.<", ">尚未選擇地點。<"), (">Use as the source location<", ">設為污染源位置<"),
     ('aria-label="Input groups"', 'aria-label="輸入分組"'),
     # explorer scene and legend
-    (">Atmosphere<", ">大氣<"), (">Glacier<", ">冰河<"), (">Bedrock &amp; ore veins<", ">基岩與礦脈<"), (">Forest soil<", ">森林土壤<"),
+    (">Atmosphere<", ">大氣<"), (">Bedrock &amp; ore veins<", ">基岩與礦脈<"), (">Forest soil<", ">森林土壤<"),
     (">Farmland<", ">農地<"), (">Mine dump<", ">礦渣堆<"), (">Village<", ">聚落<"), (">Industry<", ">工業<"), (">ARA<", ">污水廠<"),
     (">river<", ">河川<"), (">Lake<", ">湖泊<"), (">epilimnion<", ">表水層<"), (">hypolimnion<", ">深水層<"), (">sediment<", ">沉積物<"),
     (">Groundwater<", ">地下水<"), (">water table<", ">地下水位<"), (">m a.s.l.<", ">公尺（海拔）<"),
@@ -94,7 +94,7 @@ HTML = [
     (">Where the runoff reaches a stream<", ">逕流進入河道的位置<"), (">Where the runoff collects (no stream nearby)<", ">逕流匯集處（附近沒有河道）<"),
     (">Groundwater direction you set<", ">你設定的地下水流向<"), (">Terrain direction (stand-in only)<", ">地形方向（僅供替代）<"),
     (">Prevailing wind, blowing towards (air releases)<", ">盛行風的去向（空氣釋放）<"),
-    ("<h4>Where to act in year <span id=\"spActT\">", "<h4>該處理的地方：第 <span id=\"spActT\">"),
+    ('<h4>Where to act in year <span id="spActT">10</span></h4>', '<h4>第 <span id="spActT">10</span> 年該處理的地方</h4>'),
     (">Where is the metal after 1 year?<", ">一年後金屬在哪裡？<"),
     (">Time since the release started<", ">釋放開始後的時間<"), (">Floods<", ">洪水<"),
     (">Share in each place over 100 years<", ">100 年內各處所占比例<"),

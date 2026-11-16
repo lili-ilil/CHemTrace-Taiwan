@@ -14,7 +14,7 @@ TRNODES = '''
 function trNodes(root){
   if(!ZH || !root) return;
   const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT); let n; const todo = [];
-  while((n = w.nextNode())){ const t = n.nodeValue, s = t.trim(); if(s && /[A-Za-z]/.test(s)){ const z = tr(s); if(z !== s) todo.push([n, t.replace(s, z)]); } }
+  while((n = w.nextNode())){ const t = n.nodeValue, s = t.trim(); if(s && /[A-Za-z]/.test(s)){ const z = tr(s); if(z !== s) todo.push([n, /[\u3400-\u9fff]/.test(z) ? z : t.replace(s, z)]); } }
   todo.forEach(([n, v]) => { n.nodeValue = v; });
 }
 '''
@@ -71,4 +71,21 @@ PATCHES = [
     (JS, 'trNodes($("#budTitle")); trNodes($("#budRows")); trNodes($("#budNote"));', 'trNodes($("#budTitle")); trNodes($("#budRows")); trNodes($("#budNote")); trNodes($("#budTSeg"));'),
     (JS, '  const svg = box.querySelector("svg"), hit = box.querySelector(".sc-hit"), cross = $("#scCross"), tip = $("#scTip");',
          '  trNodes(box);\n  const svg = box.querySelector("svg"), hit = box.querySelector(".sc-hit"), cross = $("#scCross"), tip = $("#scTip");'),
+    # spread map "where to act" list: translate after it is built; Swiss leftovers replaced
+    (JS, '  $("#spAct").innerHTML = L.map(x => `<li>${x}</li>`).join("");\n}', '  $("#spAct").innerHTML = L.map(x => `<li>${x}</li>`).join("");\n  trNodes($("#spAct"));\n}'),
+    (JS, '`<b>Deposition:</b> no Swiss soil value for ${METALS[m].name.toLowerCase()} on this land use, so the map shows no soil zone.`',
+         '`<b>Deposition:</b> no Taiwan soil standard for ${tr(METALS[m].name).toLowerCase()} on this land use, so the map shows no soil zone.`'),
+    (JS, '`<b>Topsoil above the ${df.limName} (${fmt(df.lim)} mg/kg)</b>', '`<b>Topsoil above the ${tr(df.limName)} (${fmt(df.lim)} mg/kg)</b>'),
+    (JS, '`<b>Deposition:</b> no topsoil above the ${df.limName} (${fmt(df.lim)} mg/kg)', '`<b>Deposition:</b> no topsoil above the ${tr(df.limName)} (${fmt(df.lim)} mg/kg)'),
+    (JS, 'towards = I.windFrom !== "" ? `, furthest towards the ${compass((Number(I.windFrom) + 180) % 360)}` : ""', 'towards = I.windFrom !== "" ? `, furthest towards the ${tr(compass((Number(I.windFrom) + 180) % 360))}` : ""'),
+    (JS, 'above the ${esc(st[2].replace(/: ([\\d,.]+ mg\\/kg)$/, " ($1)"))}.', 'above the ${esc(tr(st[2].replace(/: ([\\d,.]+ mg\\/kg)$/, " ($1)")))}.'),
+    (JS, 'Turn on <b>Tracer tests</b> to see where tracer tests were run nearby; their results (which springs the water reached, and how fast) are held by the canton. Sample springs after heavy rain.',
+         'Find out which springs drain the area (from tracer tests, if any were run) and sample them after heavy rain.'),
+    (JS, 'Shooting-range data show metals can arrive in decades through fast paths:', 'Swiss shooting-range data show metals can arrive in decades through fast paths:'),
+    (JS, '`Background groundwater (${fmt(c.PC.bg)} µg/L) already exceeds the ${esc(lim.name)},', '`Background groundwater (${fmt(c.PC.bg)} µg/L) already exceeds the ${esc(tr(lim.name))},'),
+    (JS, '`<b>Groundwater above the ${esc(lim.name)} (${lim.v} µg/L):</b>', '`<b>Groundwater above the ${esc(tr(lim.name))} (${lim.v} µg/L):</b>'),
+    (JS, '`<b>Groundwater:</b> no zone above the ${esc(lim.name)} at the best estimate', '`<b>Groundwater:</b> no zone above the ${esc(tr(lim.name))} at the best estimate'),
+    (JS, '`${METALS[m].name} moves only about', '`${tr(METALS[m].name)} moves only about'),
+    (JS, '  L.push("Check whether drinking-water source protection zones or water intakes lie in the coloured area; the Taiwan protection-zone layer is planned.");',
+         '  L.push("Turn on <b>Drinking-water source protection zones</b> in the support layers to see whether a protection zone or an intake lies in the coloured area.");'),
 ]
