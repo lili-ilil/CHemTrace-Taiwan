@@ -257,6 +257,14 @@ PATCHES += [
     (IDX, "Terrain and streams: swisstopo, 2.4 km window at 50 m.", "Terrain and streams: not yet available for Taiwan (elevation grid planned)."),
 ]
 
+# background help texts still pointed to NABEL (removed above); no Taiwan air background is used yet
+PATCHES += [
+    (JS, 'help:() => S.metal === "Pb" ? "Empty: the nearest suitable NABEL station (2024)." : S.metal === "Hg" ? "Empty: about 5 µg/m²/yr wet deposition." : "No Swiss measurement is published for arsenic."},',
+         'help:"Empty: no background is added; Taiwan deposition data are not yet included. Enter a measured value if you have one."},'),
+    (JS, 'help:() => S.metal === "Pb" ? "Empty: Pb in PM10 at the nearest NABEL station (2024)." : S.metal === "Hg" ? "Empty: gaseous Hg at the nearest NABEL site (Osterwalder et al. 2024)." : "No Swiss measurement is published for arsenic."},',
+         'help:"Empty: no background is added; Taiwan metal-in-PM10 data are not yet included. Enter a measured value if you have one."},'),
+]
+
 # the English pages keep their content until step 2g, but use the new storage keys
 for _p in ("manual.html", "validation.html", "assumptions.html"):
     PATCHES += [(_p, 'localStorage.getItem("smp-theme")', 'localStorage.getItem("cht-tw-theme")'),

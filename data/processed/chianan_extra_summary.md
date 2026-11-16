@@ -17,15 +17,21 @@ PM2.5: median over 4 stations of the means of the complete years 2023-2025 = **1
 
 ## River water quality (MOENV WQX_P_01), 2021-2025, 嘉義縣, 嘉義市, 臺南市
 
+Records in 2021-2025: 92483; after removing repeated station-time-item records: 90998
+
 Stations per basin: (no basin) 25, 曾文溪流域 11, 朴子溪流域 9, 急水溪流域 7, 八掌溪流域 6, 鹽水溪流域 6, 二仁溪流域 5, 北港溪流域 1
 
 | item | samples measured | below detection | detection limits seen (mg/L) | median of station medians | stations |
 |---|---|---|---|---|---|
-| SS | 2454 | 0% | 1.0 | 19.6 mg/L | 69 |
-| pH | 2454 | 0% | – | 8.06  | 69 |
-| As | 751 | 0% | 0.0003 | 6.75 µg/L | 45 |
-| Hg | 709 | 96% | 0.0003 | – | 31 |
-| Pb | 751 | 75% | 0.003 | 5.5 µg/L (not used: mostly below detection) | 42 |
+| SS | 2422 | 1 (0%) | 1.0 | 19.7 mg/L | 69 |
+| pH | 2422 | 0 (0%) | – | 8.06  | 69 |
+| As | 719 | 3 (0%) | 0.0003 | 6.6 µg/L | 45 |
+| Hg | 677 | 646 (95%) | 0.0003 | – | 31 |
+| Pb | 719 | 538 (75%) | 0.003 | 5.5 µg/L (not used: mostly below detection) | 42 |
+| Cd | 719 | 682 (95%) | 0.001 | 1 µg/L (not used: mostly below detection) | 32 |
+| Ni | 719 | 467 (65%) | 0.005 | 9 µg/L (not used: mostly below detection) | 42 |
+| Cr6 | 703 | 668 (95%) | 0.002 | 2.5 µg/L (not used: mostly below detection) | 32 |
+| Cr | 0 | 0 (0%) | – | – | 0 |
 
 Metals are MOENV river monitoring values (total, not filtered), so as a 'dissolved background' they are an upper bound.
 

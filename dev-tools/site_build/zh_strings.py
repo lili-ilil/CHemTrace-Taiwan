@@ -16,7 +16,7 @@ HTML = [
     (">Trace contaminants through rock, soil, air, river, lake and groundwater in Taiwan: which form they take, where they move next, how they reach people, and where they can be trapped. Arsenic, mercury and lead are available now; more contaminants are being added.<",
      ">追蹤污染物在台灣的岩石、土壤、空氣、河川、湖泊和地下水之間的去向：它們以什麼化學型態存在、接下來往哪裡移動、如何接觸到人，以及可以在哪裡攔截。目前提供砷、汞、鉛，其他污染物陸續加入。<"),
     ('<label class="ctl-label" for="metalSel">Metal</label>', '<label class="ctl-label" for="metalSel">金屬</label>'),
-    (">Arsenic · Z 33<", ">砷 Arsenic · Z 33<"), (">Mercury · Z 80<", ">汞 Mercury · Z 80<"), (">Lead · Z 82<", ">鉛 Lead · Z 82<"),
+    (">Arsenic · Z 33<", ">砷 Arsenic · Z 33<"), (">Cadmium · Z 48<", ">鎘 Cadmium · Z 48<"), (">Mercury · Z 80<", ">汞 Mercury · Z 80<"), (">Lead · Z 82<", ">鉛 Lead · Z 82<"), (">Nickel · Z 28<", ">鎳 Nickel · Z 28<"), (">Chromium · Z 24<", ">鉻 Chromium · Z 24<"),
     # navigation
     ('<a href="#explorer">Explorer</a>', '<a href="#explorer">探索</a>'),
     (">Inputs for a professional run<", ">專業評估需要的輸入<"),
@@ -66,6 +66,7 @@ HTML = [
     ("</svg> more / <svg", "</svg> 增加 / <svg"), ("</svg> less after your last change</span>", "</svg> 減少（相對於上次修改）</span>"),
     (">Hover or tap a compartment · click to pin<", ">移到或點一下環境介質 · 點選可固定<"),
     (">Swipe the profile sideways · tap a compartment<", ">左右滑動剖面圖 · 點一下環境介質<"),
+    (">Mass budget: every kilogram released, followed to where it sits now. The rows add up to 100%. Results above are concentrations; this shows amounts.<", ">質量收支：追蹤每一公斤釋放的金屬目前在哪裡。各列合計為 100%。上方的結果是濃度；這裡顯示的是數量。<"),
     # results and spread map
     (">Screening results<", ">篩選結果<"),
     (">Where to act: how it spreads over time<", ">該在哪裡處理：隨時間的擴散<"),
@@ -296,13 +297,13 @@ T = {
 }
 
 P = [
-    [r"^Background (As|Hg|Pb) in soil$", r"土壤中 $1 背景值"],
-    [r"^Background (As|Hg|Pb) in groundwater$", r"地下水中 $1 背景值"],
-    [r"^Background dissolved (As|Hg|Pb) in river$", r"河川中溶解態 $1 背景值"],
-    [r"^Background (As|Hg|Pb) deposition \(optional\)$", r"$1 背景沉降量（選填）"],
-    [r"^Background (As|Hg|Pb) in air \(optional\)$", r"空氣中 $1 背景值（選填）"],
-    [r"^(As|Hg|Pb) in ice from 1950–1990$", r"1950–1990 年冰層中的 $1"],
-    [r"^(As|Hg|Pb) in fine dust at the most exposed point$", r"最大暴露點懸浮微粒中的 $1"],
+    [r"^Background ([A-Z][a-z]?) in soil$", r"土壤中 $1 背景值"],
+    [r"^Background ([A-Z][a-z]?) in groundwater$", r"地下水中 $1 背景值"],
+    [r"^Background dissolved ([A-Z][a-z]?) in river$", r"河川中溶解態 $1 背景值"],
+    [r"^Background ([A-Z][a-z]?) deposition \(optional\)$", r"$1 背景沉降量（選填）"],
+    [r"^Background ([A-Z][a-z]?) in air \(optional\)$", r"空氣中 $1 背景值（選填）"],
+    [r"^([A-Z][a-z]?) in ice from 1950–1990$", r"1950–1990 年冰層中的 $1"],
+    [r"^([A-Z][a-z]?) in fine dust at the most exposed point$", r"最大暴露點懸浮微粒中的 $1"],
     [r"^Topsoil after (.+) years$", r"$1 年後的表土"],
     [r"^Exceeds class (1|2) control std$", r"超過第$1類管制標準"],
     [r"^Below class (1|2) control std$", r"低於第$1類管制標準"],
@@ -310,3 +311,18 @@ P = [
     [r"^Load example: (.+)$", r"載入範例：$1"],
     [r"^(.+)% of TWI$", r"每週容許攝入量的 $1%"],
 ]
+
+
+# cadmium texts are kept next to the English in step_cd.py
+import step_cd as _cd
+T.update(_cd.zh_pairs())
+import step_ni as _ni
+T.update(_ni.zh_pairs())
+import step_cr as _cr
+T.update(_cr.zh_pairs())
+P.extend(_cr.zh_patterns())
+import zh_help as _zh_help
+T.update(_zh_help.pairs())
+import zh_dyn as _zh_dyn
+T.update(_zh_dyn.T)
+P.extend(_zh_dyn.P)

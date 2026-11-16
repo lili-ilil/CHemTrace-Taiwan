@@ -2,7 +2,7 @@
 
 Screening tool for arsenic, mercury and lead pathways through soil, air, groundwater, rivers and lakes in Taiwan, with an English and a Traditional Chinese interface (`site/index.html`, `site/index.zh.html`). In development (version 0.1.0). It is the Taiwan version of [CHemTrace](https://lili-ilil.github.io/CHemTrace/).
 
-台灣版 CHemTrace：篩選評估砷、汞、鉛在土壤、空氣、地下水、河川與湖泊之間的傳輸，介面有英文和繁體中文。開發中。
+台灣版 CHemTrace：篩選評估砷、汞、鉛、鎘、鎳、鉻在土壤、空氣、地下水、河川與湖泊之間的傳輸，介面有英文和繁體中文。開發中。
 
 ## Folders
 

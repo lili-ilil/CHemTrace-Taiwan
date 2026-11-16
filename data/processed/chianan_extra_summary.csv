@@ -1,10 +1,14 @@
 ﻿item,value,unit,n,note
 PM10,36.2,µg/m³,4,"median of station means, complete years of 2023-2025"
 PM2.5,16.7,µg/m³,4,"median of station means, complete years of 2023-2025"
-river SS,19.6,mg/L,69,0% below detection
-river pH,8.06,,69,0% below detection
-river As,6.75,µg/L,45,0% below detection
-river Hg,,µg/L,31,96% below detection
-river Pb,,µg/L,42,75% below detection
+river SS,19.7,mg/L,69,1 of 2422 samples below detection (0%)
+river pH,8.06,,69,0 of 2422 samples below detection (0%)
+river As,6.6,µg/L,45,3 of 719 samples below detection (0%)
+river Hg,,µg/L,31,646 of 677 samples below detection (95%)
+river Pb,,µg/L,42,538 of 719 samples below detection (75%)
+river Cd,,µg/L,32,682 of 719 samples below detection (95%)
+river Ni,,µg/L,42,467 of 719 samples below detection (65%)
+river Cr6,,µg/L,32,668 of 703 samples below detection (95%)
+river Cr,,µg/L,0,0 of 0 samples below detection (0%)
 soil pH class (median),6.6-7.3,,,area-weighted
 soil drainage class (largest share),good,,,91% of area

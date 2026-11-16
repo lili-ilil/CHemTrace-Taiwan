@@ -10,7 +10,9 @@ Output   data/processed/chianan_extra_summary.md and .csv
 Rules
   air    annual mean = mean of 12 monthly values; only years 2023-2025 with all 12 months are used (2024 is
          incomplete in the download); preset = median over stations of the mean of their complete years
-  river  samples 2021-01-01 to 2025-12-31; "-" = not measured (skipped); "<x" = below detection limit x;
+  river  samples 2021-01-01 to 2025-12-31; one record per station, sampling time and item (the API lists some
+         samples twice, under two townships or two station coordinates, with the same value; 2026-11-15 check);
+         "-" = not measured (skipped); "<x" = below detection limit x;
          per-station median of measured values; preset = median over stations; metals reported with the share of
          samples below detection, and no preset value when most samples are below detection
   soil   polygons in 嘉義縣, 嘉義市, 臺南市 with slope class 1 (0-5 %, the plain); class shares weighted by polygon area
@@ -65,13 +67,18 @@ def air(L, rows):
 
 
 def river(L, rows):
-    R = [r for r in full_runs("WQX_P_01") if r["county"] in COUNTIES and "2021-01-01" <= r["sampledate"][:10] <= "2025-12-31"]
+    R0 = [r for r in full_runs("WQX_P_01") if r["county"] in COUNTIES and "2021-01-01" <= r["sampledate"][:10] <= "2025-12-31"]
+    seen = {}
+    for r in R0: seen.setdefault((r["siteid"], r["sampledate"], r["itemengabbreviation"]), r)
+    R = list(seen.values())
     L.append("## River water quality (MOENV WQX_P_01), 2021-2025, 嘉義縣, 嘉義市, 臺南市\n")
     basins = defaultdict(set)
     for r in R: basins[r["basin"] or "(no basin)"].add(r["siteid"])
+    L.append(f"Records in 2021-2025: {len(R0)}; after removing repeated station-time-item records: {len(R)}\n")
     L.append("Stations per basin: " + ", ".join(f"{b} {len(s)}" for b, s in sorted(basins.items(), key=lambda x: -len(x[1]))) + "\n")
     L.append("| item | samples measured | below detection | detection limits seen (mg/L) | median of station medians | stations |\n|---|---|---|---|---|---|")
-    for it, unit, f in (("SS", "mg/L", 1), ("pH", "", 1), ("As", "µg/L", 1000), ("Hg", "µg/L", 1000), ("Pb", "µg/L", 1000)):
+    for it, unit, f in (("SS", "mg/L", 1), ("pH", "", 1), ("As", "µg/L", 1000), ("Hg", "µg/L", 1000), ("Pb", "µg/L", 1000),
+                         ("Cd", "µg/L", 1000), ("Ni", "µg/L", 1000), ("Cr6", "µg/L", 1000), ("Cr", "µg/L", 1000)):
         per, nd, dls, n = defaultdict(list), 0, set(), 0
         for r in R:
             if r["itemengabbreviation"] != it: continue
@@ -86,8 +93,8 @@ def river(L, rows):
         med = statistics.median(vals) if vals else None
         share = nd / n if n else 0
         use = med is not None and share < 0.5
-        L.append(f"| {it} | {n} | {share:.0%} | {', '.join(sorted(dls)[:4]) or '–'} | {f'{med:.3g} {unit}' if med is not None else '–'}{'' if use else ' (not used: mostly below detection)' if med is not None else ''} | {len(per)} |")
-        rows.append({"item": "river " + it, "value": f"{med:.3g}" if use else "", "unit": unit, "n": len(per), "note": f"{share:.0%} below detection"})
+        L.append(f"| {it} | {n} | {nd} ({share:.0%}) | {', '.join(sorted(dls)[:4]) or '–'} | {f'{med:.3g} {unit}' if med is not None else '–'}{'' if use else ' (not used: mostly below detection)' if med is not None else ''} | {len(per)} |")
+        rows.append({"item": "river " + it, "value": f"{med:.3g}" if use else "", "unit": unit, "n": len(per), "note": f"{nd} of {n} samples below detection ({share:.0%})"})
     L.append("\nMetals are MOENV river monitoring values (total, not filtered), so as a 'dissolved background' they are an upper bound.\n")
 
 

@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="assets/css/styles.css">
 <script>
 try{ var t = localStorage.getItem("cht-tw-theme"); if(t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t); }catch(e){}
-try{ var m = localStorage.getItem("cht-tw-metal"); if(m === "Hg" || m === "Pb" || m === "As") document.documentElement.setAttribute("data-metal", m); }catch(e){}
+try{ var m = localStorage.getItem("cht-tw-metal"); if(/^[A-Z][a-z]?$/.test(m || "")) document.documentElement.setAttribute("data-metal", m); }catch(e){}
 </script>
 <style>
 .man{display:grid; grid-template-columns:220px minmax(0,1fr); gap:36px; align-items:start}

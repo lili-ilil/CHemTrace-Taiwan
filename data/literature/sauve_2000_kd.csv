@@ -1,0 +1,9 @@
+﻿table,metal,value,statistics,source
+Table 2 (p. 1128),Cd,log10 Kd = 0.49 pH - 0.60,R2 0.467; SEE 0.71; N 830,"Sauvé S., Hendershot W., Allen H.E. (2000) Environ. Sci. Technol. 34:1125-1131"
+Table 2 (p. 1128),Ni,log10 Kd = 0.72 pH - 1.75,R2 0.576; SEE 0.70; N 138,"Sauvé S., Hendershot W., Allen H.E. (2000) Environ. Sci. Technol. 34:1125-1131"
+Table 2 (p. 1128),Pb,log10 Kd = 0.49 pH + 1.37,R2 0.473; SEE 0.65; N 204 (not used: the site keeps 1.99 + 0.42 pH of the Swiss version),"Sauvé S., Hendershot W., Allen H.E. (2000) Environ. Sci. Technol. 34:1125-1131"
+Table 3 (p. 1129),Cd,log10 Kd = 0.48 pH + 0.82 log(SOM) - 0.65,R2 0.613; SEE 0.62; N 751,"Sauvé S., Hendershot W., Allen H.E. (2000) Environ. Sci. Technol. 34:1125-1131"
+Table 3 (p. 1129),Ni,log10 Kd = 1.02 pH + 0.80 log(SOM) - 4.16,R2 0.758; SEE 0.61; N 69,"Sauvé S., Hendershot W., Allen H.E. (2000) Environ. Sci. Technol. 34:1125-1131"
+Table 1 (p. 1128),Cd,Kd median 390 L/kg; min 0.44; max 192000; log10 Kd 3.46,N 830,"Sauvé S., Hendershot W., Allen H.E. (2000) Environ. Sci. Technol. 34:1125-1131"
+Table 1 (p. 1128),Ni,Kd median 2333 L/kg; min 8.9; max 256842; log10 Kd 4.22,N 139,"Sauvé S., Hendershot W., Allen H.E. (2000) Environ. Sci. Technol. 34:1125-1131"
+Table 1 (p. 1128),Cr,Kd median 4778 L/kg; min 125; max 65609; log10 Kd 4.17,"N 64; total Cr, oxidation state not separated","Sauvé S., Hendershot W., Allen H.E. (2000) Environ. Sci. Technol. 34:1125-1131"

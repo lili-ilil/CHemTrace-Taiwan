@@ -169,4 +169,6 @@ PATCHES = [
     (IDX, "Source area: red or amber if the topsoil is above a Swiss value", "Source area: red or amber if the topsoil is above a Taiwan soil standard"),
     (IDX, '<option value="tbdv">Drinking-water limit (TBDV)</option><option value="altl">AltlV concentration value (Annex 1)</option>',
      '<option value="tbdv">Drinking-water standard</option><option value="altl">Groundwater control standard (class from the Exposure tab)</option>'),
+    # leftover Swiss wording in the summary
+    (JS, 'mg/kg over ${area}, below Swiss soil values.`', 'mg/kg over ${area}, below the Taiwan soil standards.`'),
 ]

@@ -1,0 +1,8 @@
+﻿metal,log10Kd_median,log10Kd_mean,sd,min,max,N,page,note,source
+As,4.0,3.9,0.5,2.0,6.0,25,p. 3-15,As(III) and As(V) not separated; matches the site's KDSS,"Allison J.D., Allison T.L. (2005) Partition coefficients for metals in surface water, soil, and waste. EPA/600/R-05/074, Table 5"
+Cd(II),5.0,4.9,0.6,2.8,6.3,38,p. 3-15,,"Allison J.D., Allison T.L. (2005) Partition coefficients for metals in surface water, soil, and waste. EPA/600/R-05/074, Table 5"
+Cr(III),5.1,5.1,0.4,3.9,6.0,25,p. 3-15,,"Allison J.D., Allison T.L. (2005) Partition coefficients for metals in surface water, soil, and waste. EPA/600/R-05/074, Table 5"
+Cr(VI),,4.2,0.5,3.6,5.1,,p. 3-15,estimated by the report from the soil Kd regression (confidence level 4),"Allison J.D., Allison T.L. (2005) Partition coefficients for metals in surface water, soil, and waste. EPA/600/R-05/074, Table 5"
+Hg(II),5.3,5.3,0.4,4.2,6.9,26,p. 3-15,matches the site's KDSS,"Allison J.D., Allison T.L. (2005) Partition coefficients for metals in surface water, soil, and waste. EPA/600/R-05/074, Table 5"
+Ni(II),4.3,4.4,0.4,3.5,5.7,25,p. 3-16,,"Allison J.D., Allison T.L. (2005) Partition coefficients for metals in surface water, soil, and waste. EPA/600/R-05/074, Table 5"
+Pb(II),5.7,5.7,0.4,3.4,6.5,38,p. 3-16,matches the site's KDSS,"Allison J.D., Allison T.L. (2005) Partition coefficients for metals in surface water, soil, and waste. EPA/600/R-05/074, Table 5"

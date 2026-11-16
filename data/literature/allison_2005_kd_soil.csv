@@ -1,0 +1,6 @@
+﻿metal,log10Kd_median,log10Kd_mean,sd,min,max,N,CL,page,note,source
+Cd(II),2.9,2.7,0.8,0.1,5.0,37,1,p. 3-8,"literature data, edited","Allison J.D., Allison T.L. (2005) Partition coefficients for metals in surface water, soil, and waste. EPA/600/R-05/074, Table 3 (soil/soil water)"
+Cr(III),3.9,3.8,0.4,1.0,4.7,22,2,p. 3-8,"literature data, raw; Table 1 lists N 43, the report does not explain the difference","Allison J.D., Allison T.L. (2005) Partition coefficients for metals in surface water, soil, and waste. EPA/600/R-05/074, Table 3 (soil/soil water)"
+Cr(VI),1.1,0.8,0.8,-0.7,3.3,24,2,p. 3-8,"literature data, raw; log-normal assumed","Allison J.D., Allison T.L. (2005) Partition coefficients for metals in surface water, soil, and waste. EPA/600/R-05/074, Table 3 (soil/soil water)"
+Ni(II),3.1,2.9,0.5,1.0,3.8,19,1,p. 3-9,"literature data, raw","Allison J.D., Allison T.L. (2005) Partition coefficients for metals in surface water, soil, and waste. EPA/600/R-05/074, Table 3 (soil/soil water)"
+Pb(II),4.1,3.7,1.2,0.7,5.0,31,2,p. 3-9,"literature data, edited; log-normal assumed","Allison J.D., Allison T.L. (2005) Partition coefficients for metals in surface water, soil, and waste. EPA/600/R-05/074, Table 3 (soil/soil water)"

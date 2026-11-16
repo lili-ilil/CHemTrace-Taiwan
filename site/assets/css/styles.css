@@ -9,7 +9,7 @@ img{max-width:100%}
 /* Layout: a schematic Alpine profile is the hero; a field-guide panel sits beside it; reference sections follow below */
 :root{
   --paper:#F2F4F0; --surface:#FFFFFF; --ink:#16232A; --ink-2:#4B5B61; --ink-3:#6E7D82; --rule:#D3DBD5; --chip:#E8EDE8;
-  --as:#B8870C; --hg:#C2362B; --pb:#4A5A86; --metal:var(--as);
+  --as:#B8870C; --hg:#C2362B; --pb:#4A5A86; --cd:#2F7D6B; --ni:#6B7F2A; --cr:#9A4F7A; --metal:var(--as);
   --ok:#2F7D4F; --warn:#B7790F; --crit:#B23A30; --dir:#00C853;
   --sky-top:#D4E5F0; --sky-bot:#EEF3F1; --ridge:#C9D3D8; --cloud:#FFFFFF;
   --rock:#CBC5BA; --rock-line:#9C9588; --ore:#3E3A35;
@@ -52,6 +52,9 @@ img{max-width:100%}
 }
 :root[data-metal="Hg"]{--metal:var(--hg)}
 :root[data-metal="Pb"]{--metal:var(--pb)}
+:root[data-metal="Cd"]{--metal:var(--cd)}
+:root[data-metal="Ni"]{--metal:var(--ni)}
+:root[data-metal="Cr"]{--metal:var(--cr)}
 
 *{box-sizing:border-box}
 body{background:var(--paper); color:var(--ink); font-family:var(--f-body); font-size:15px; line-height:1.55;
