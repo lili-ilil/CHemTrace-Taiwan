@@ -23,7 +23,7 @@ ROOT = HERE.parents[1]
 BASE = ROOT / "base" / "docs"
 SITE = ROOT / "site"
 SKIP = {"data/grid.bin", "data/grid.json"}          # Swiss grid; the Taiwan grid comes in step 2d
-STEPS = ["step_2a", "step_metals", "step_2c", "step_2f", "step_cd", "step_ni", "step_cr", "step_explore", "step_sources", "step_help_tw", "step_2b", "step_zh_dyn", "step_grid"]   # 2b last so that it translates the Taiwan texts
+STEPS = ["step_2a", "step_metals", "step_2c", "step_2f", "step_cd", "step_ni", "step_cr", "step_coast", "step_explore", "step_sources", "step_help_tw", "step_2b", "step_zh_dyn", "step_grid", "step_wells"]   # 2b last so that it translates the Taiwan texts
 
 
 class Files:

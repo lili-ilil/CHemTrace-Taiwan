@@ -15,7 +15,7 @@ const {chromium} = require('playwright');
   await p.goto('http://localhost:8765/index.html'); await p.waitForTimeout(600);
   const out = await p.evaluate(() => {
     const o = {};
-    for(const m of ["As", "Hg", "Pb"]) for(const medium of ["soil", "air", "road", "gw", "river", "glacier"]) for(const land of ["garden", "agri"]){
+    for(const m of ["As", "Hg", "Pb"]) for(const medium of ["soil", "air", "road", "gw", "river"]) for(const land of ["garden", "agri"]){
       if(medium === "road" && m !== "Pb") continue;
       const r = SMP.run(m, {medium, land});
       o[`${m}|${medium}|${land}`] = r.results.map(x => [x.id, x.value, x.tag, x.p5, x.p95]);

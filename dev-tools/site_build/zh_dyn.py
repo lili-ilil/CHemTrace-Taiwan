@@ -113,6 +113,31 @@ T = {
     "Groundwater": "地下水", "Downstream past the lake": "湖泊以下的下游", "Air and other losses": "空氣和其他損失",
     "years since the release started": "釋放開始後的年數", "Show as a table": "以表格顯示", "Year": "年",
     "Groundwater and river releases are treated as continuous.": "地下水和河川的釋放視為連續釋放。",
+    # site pick: groundwater rows (step_wells.py)
+    "Nearest MOENV well": "最近的環境部監測井", "Groundwater pH": "地下水 pH", "Depth to water": "地下水位深度", "from the well top": "自井口量起",
+    "Chloride": "氯鹽", "Chloride, WRA well": "氯鹽（水利署井）", "samples": "筆樣品", "nearest MOENV well": "最近的環境部監測井", "is": "距離",
+    "away; more than 5 km, not used": "，超過 5 km，不採用", "Redox class": "氧化還原分級", "of": "／", "complete samples": "筆完整分析樣品",
+    "nearest WRA well with a redox class is": "最近有氧化還原分級的水利署井距離", "away; not used": "，不採用",
+    "Climate, air, land use": "氣候、空氣、土地利用", "not yet in the Taiwan data grid": "台灣資料網格還沒有",
+    "MOENV regional groundwater monitoring": "環境部區域性地下水監測", "WRA groundwater quality, layer 1": "水利署地下水水質，第一層",
+    "Soil values come from the soil map polygon at this point or within 250 m; groundwater values from the nearest monitoring wells within 5 km, background air from the nearest air station within 10 km. Check them against site samples.":
+        "土壤數值取自此點或 250 m 內的土壤圖圖斑；地下水數值取自 5 km 內最近的監測井；背景空氣取自 10 km 內最近的空品測站。請以場址樣品確認。",
+    "Nearest air station": "最近的空品測站", "PM10, PM2.5 (annual mean)": "PM10、PM2.5（年平均）", "Background air": "背景空氣",
+    "– (station table not loaded)": "–（測站資料沒有載入）", "nearest air station": "最近的空品測站", "away; more than 10 km, not used": "，超過 10 km，不採用",
+    "MOENV air quality monitoring (AQX_P_07, AQX_P_08)": "環境部空氣品質監測（AQX_P_07、AQX_P_08）", "Climate, land use": "氣候、土地利用",
+    "mean of complete years": "完整年份平均", "no complete year 2023–2025": "2023–2025 沒有完整年份", "traffic station: roadside air, not used as background": "交通站：路邊空氣，不當作背景值",
+    "Protection zone": "水源保護區", "– (layer not loaded)": "–（圖層沒有載入）", "MOENV drinking-water source protection zones (data.gov.tw 6377)": "環境部飲用水水源水質保護區（data.gov.tw 6377）",
+    "groundwater class 1": "第一類地下水", "groundwater class 2": "第二類地下水", "outside all protection zones": "不在任何保護區內", "Near a drinking-water intake": "取水口一定距離內",
+    "Drinking-water source protection zone": "飲用水水源水質保護區", "Within the set distance of a drinking-water intake": "飲用水取水口一定距離內",
+    "Rainfall": "雨量", "Rainfall, nearest CWA station": "雨量（最近的氣象署測站）", "CWA 1991–2020 normals (C-B0027-001)": "氣象署 1991–2020 氣候平均值（C-B0027-001）",
+    "nearest suitable CWA station": "最近的合適氣象署測站", "away; more than 30 km, not used": "，超過 30 km，不採用", "Wind, land use": "風、土地利用",
+    "Soil values come from the soil map polygon at this point or within 250 m; groundwater values from the nearest monitoring wells within 5 km, background air from the nearest air station within 10 km, rainfall from the nearest CWA station within 30 km and 300 m of height. Check them against site samples.":
+        "土壤數值取自此點或 250 m 內的土壤圖圖斑；地下水數值取自 5 km 內最近的監測井；背景空氣取自 10 km 內最近的空品測站；雨量取自 30 km 內、高度差 300 m 以內最近的氣象署測站。請以場址樣品確認。",
+    "Ground height": "地面高程", "Chloride in groundwater": "地下水氯鹽", "WRA observation wells (32718)": "水利署觀測井（32718）",
+    "Fill site values and set the source location": "填入場址數值並設為污染源位置", "– (well table not loaded)": "–（監測井資料沒有載入）", "MOENV, WRA": "環境部、水利署",
+    "drinking-water standard": "飲用水標準",
+    "anoxic": "缺氧", "suboxic": "次缺氧", "sulfidic": "硫化物還原",
+    "O2 or NO3 (O2 unknown)": "O2 或 NO3（未測溶氧）", "O2 or suboxic (O2 unknown)": "O2 或次缺氧（未測溶氧）",
 }
 
 _Y = r"(\d+) years?"
@@ -183,4 +208,9 @@ P = [
      r"$1 年後，最大部分（$2）以 Hg⁰ 從土壤和積雪回到空氣，會在大範圍內再次沉降。"],
     [r"^After " + _Y + r", the largest share \((.+?)\) escaped from lake water as Hg⁰ gas\. It returns with rain over a wide region, so cutting the input upstream of the lake is the lever\.$",
      r"$1 年後，最大部分（$2）以 Hg⁰ 氣體從湖水逸散，會隨降雨回到大範圍的地面，所以關鍵是在湖泊上游阻斷輸入。"],
+    # site pick: groundwater notes
+    [r"^(\d+) of (\d+) samples below (.+?) µg/L, so 0 used \(below detection, not a measured zero\)$", r"$2 筆中 $1 筆低於 $3 µg/L，所以用 0（低於偵測極限，不是測得為零）"],
+    [r"^median (.+?) µg/L \((\d+) of (\d+) samples below detection\)$", r"中位數 $1 µg/L（$3 筆中 $2 筆低於偵測極限）"],
+    [r"^NO3 and (.+), O2 unknown$", r"NO3 與 $1 還原，未測溶氧"],
+    [r"^(.+), O2 unknown$", r"$1 還原，未測溶氧"],
 ]

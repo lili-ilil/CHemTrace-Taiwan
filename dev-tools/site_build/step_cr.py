@@ -4,9 +4,9 @@ Sourced values
   soil Kd       log10 Kd median Cr(III) 3.9 (range 1.0-4.7, SD 0.4, n 22) and Cr(VI) 1.1 (range -0.7-3.3, SD 0.8, n 24)
                 (Allison & Allison 2005, EPA/600/R-05/074, Table 3, p. 3-8, soil/soil water; no pH regression for Cr)
   suspended Kd  log10 Kd Cr(III) 5.1 (median) and Cr(VI) 4.2 (mean, estimated by the report, CL 4) (Table 5, p. 3-15)
-  valence       Cr(VI) is reduced to Cr(III) by ferrous iron, reduced sulfur and organic matter; most Cr(III) compounds are
-                sparingly soluble at pH 5.5-8 and precipitate as hydroxide (Palmer & Puls 1994, EPA/540/5-94/505, as
-                summarised by US EPA CLU-IN, Chromium VI, Chemistry and Behavior)
+  valence       Cr(VI) is reduced to Cr(III) by electron donors common in soils: aqueous Fe(II), ferrous iron minerals,
+                reduced sulfur and soil organic matter; above pH 4 Cr(III) precipitates as a hydroxide or an Fe-Cr solid
+                solution (Palmer & Puls 1994, EPA Ground Water Issue EPA/540/5-94/505, p. 3; read in the PDF, 16 Nov 2026)
   standards     total Cr: drinking water 0.05 mg/L; groundwater control 0.050 / 0.50 mg/L (class 1 / 2), monitoring half;
                 soil control 250 mg/kg, monitoring 175 mg/kg (no separate farmland value)   (05 file)
   health        Cr(III) tolerable daily intake 300 µg/kg bw (EFSA CONTAM 2014, EFSA Journal 3595, doi 10.2903/j.efsa.2014.3595);

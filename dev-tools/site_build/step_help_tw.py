@@ -12,6 +12,7 @@ Runs before step_2b, so the Chinese strings (zh_help.py) match the new English.
 JS = "assets/js/app.js"
 
 PATCHES = [
+    (JS, 'help:"Where the metal first enters the environment. Road traffic and glacier melt calculate the release from their own inputs."', 'help:"Where the metal first enters the environment. Road traffic calculates the release from its own inputs."'),
     (JS, 'help:"Average daily traffic. Swiss counts: ASTRA and cantonal traffic counting stations."', 'help:"Average daily traffic, from road traffic counts."'),
     (JS, 'src:"ASTRA traffic counts"', 'src:"Road traffic counts"'),
     (JS, 'help:"Leaded petrol was banned in Switzerland in 2000; roadside soils still hold its lead."',

@@ -308,13 +308,17 @@
           <div class="sp-drawer" id="spDrawer" role="region" aria-labelledby="spDrawerTitle">
             <div class="sp-drawer-hd"><h4 id="spDrawerTitle">Support layers</h4><button type="button" class="sp-drawer-x" id="spDrawerX" aria-label="Close support layers">×</button></div>
               <fieldset class="sp-layers" id="spLayers"><legend class="sr-only">Support layers</legend>
-                <p class="mini">Taiwan layers are being added: drinking-water source protection zones, groundwater pollution control sites, the arsenic potential areas and geology (step 2e). The Swiss layers of the original site do not apply here.</p>
+                <p class="mini">Wells, air stations and protection zones are available. Still to come: groundwater pollution control sites, the arsenic potential areas and geology (step 2e).</p>
+                <label><input type="checkbox" data-ov="wellsM" autocomplete="off"><span>MOENV groundwater monitoring wells <small>red: median of the selected metal above the drinking-water standard; click a well for its values</small></span></label>
+                <label><input type="checkbox" data-ov="wellsR" autocomplete="off"><span>WRA observation wells, layer 1 <small>colour: redox class; click a well for chloride</small></span></label>
+                <label><input type="checkbox" data-ov="air" autocomplete="off"><span>MOENV air-quality stations <small>PM10 and PM2.5, mean of complete years 2023–2025; grey: traffic stations</small></span></label>
+                <label><input type="checkbox" data-ov="pz" autocomplete="off"><span>Drinking-water source protection zones <small>blue: protection zone (groundwater class 1); dashed purple: set distance around an intake</small></span></label>
                 <label><input type="checkbox" id="spTerrDir" checked autocomplete="off"><span>Terrain direction arrow <small>a stand-in, not a measurement; needs the elevation grid (planned)</small></span></label>
               </fieldset>
           </div>
         </div>
         <div class="sp-side">
-          <button type="button" class="sp-layers-btn" id="spLayersBtn" aria-expanded="false" aria-controls="spDrawer"><span class="chev" aria-hidden="true">‹</span><span>Support layers<small>Taiwan layers in preparation</small></span><span class="cnt" id="spLayersCnt"></span></button>
+          <button type="button" class="sp-layers-btn" id="spLayersBtn" aria-expanded="false" aria-controls="spDrawer"><span class="chev" aria-hidden="true">‹</span><span>Support layers<small>Wells, air stations, protection zones</small></span><span class="cnt" id="spLayersCnt"></span></button>
           <ul class="sp-legend" aria-label="Map legend">
             <li><i class="lg-fill crit"></i>Above the standard (best estimate)</li>
             <li><i class="lg-fill warn"></i>Possibly above (at least 10% of runs)</li>

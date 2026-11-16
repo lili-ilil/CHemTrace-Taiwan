@@ -1,0 +1,5 @@
+﻿chemical,estuary,K0D_ml_per_g,b,salting_const_l_per_mol,phi_l_per_g,r2,equation,source
+Cd,Humber,6600,0.65,,,0.93,KD = K0D (S+1)^-b,"Turner A., Millward G.E. (2002) Suspended particles: their role in estuarine biogeochemical cycles. Estuarine, Coastal and Shelf Science 55:857-883, doi 10.1006/ecss.2002.1033, Table 5 (p. 870)"
+Cr,Clyde,180000,0.52,,,0.98,KD = K0D (S+1)^-b,"Turner A., Millward G.E. (2002) Suspended particles: their role in estuarine biogeochemical cycles. Estuarine, Coastal and Shelf Science 55:857-883, doi 10.1006/ecss.2002.1033, Table 5 (p. 870)"
+Ni,Plym,5300,0.54,,,0.88,KD = K0D (S+1)^-b,"Turner A., Millward G.E. (2002) Suspended particles: their role in estuarine biogeochemical cycles. Estuarine, Coastal and Shelf Science 55:857-883, doi 10.1006/ecss.2002.1033, Table 5 (p. 870)"
+Hg,Plym,59200,,1.39,0.0213,0.96,Eq. 7, salting out: KD rises with salinity (Greek symbols lost in text extraction; read the exact form on p. 869 before use),"Turner A., Millward G.E. (2002) Suspended particles: their role in estuarine biogeochemical cycles. Estuarine, Coastal and Shelf Science 55:857-883, doi 10.1006/ecss.2002.1033, Table 5 (p. 870)"

@@ -721,7 +721,7 @@ window.CHT_ZH = {
 "Reduce Cr(VI) to Cr(III) at the source (ferrous iron, sulfide or organic matter) before it reaches oxic groundwater (Palmer & Puls 1994).": "在源頭把 Cr(VI) 還原成 Cr(III)（用二價鐵、硫化物或有機質），不讓它進入好氧的地下水（Palmer & Puls 1994）。",
 "Empty: no background is added; Taiwan deposition data are not yet included. Enter a measured value if you have one.": "空白：不加背景值；還沒有納入台灣的沉降資料。有實測值請填入。",
 "Empty: no background is added; Taiwan metal-in-PM10 data are not yet included. Enter a measured value if you have one.": "空白：不加背景值；還沒有納入台灣 PM10 中金屬的資料。有實測值請填入。",
-"Where the metal first enters the environment. Road traffic and glacier melt calculate the release from their own inputs.": "金屬最先進入環境的地方。道路交通和冰河融化會由各自的輸入值計算釋放量。",
+"Where the metal first enters the environment. Road traffic calculates the release from its own inputs.": "金屬最先進入環境的地方。道路交通會由自己的輸入值計算釋放量。",
 "Sets the default reactive fraction and, for air, the particle sizes.": "決定預設的可反應比例；空氣排放時也決定粒徑分布。",
 "Average daily traffic, from road traffic counts.": "平均每日交通量，取自道路交通量調查。",
 "Each heavy vehicle counts as four cars (assumption).": "每輛重型車輛以四輛小客車計（假設）。",
@@ -767,6 +767,7 @@ window.CHT_ZH = {
 "Leave empty to use the screening relation.": "空白時使用篩選用的關係式。",
 "Gravel 1e-3 to 1e-2; fractured rock 1e-7 to 1e-5.": "礫石 1e-3 到 1e-2；裂隙岩 1e-7 到 1e-5。",
 "Recommended: read it from groundwater-level contours of nearby WRA observation wells or from your own wells, or click Set direction on the spread map.": "建議：由附近水利署觀測井或自己的井的地下水位等值線判讀，或在擴散地圖上按「設定方向」。",
+"Seawater intrusion raises chloride. Cadmium forms chloride complexes and binds less: its aquifer Kd is scaled by the free Cd²⁺ fraction (constants from minteq.v4.dat, checked against PHREEQC). Empty: no correction. Standard seawater holds about 19,350 mg chloride per kg (Pawlowicz 2010, Ocean Sci. 6:361, Table 3).": "海水入侵會提高氯鹽。鎘會和氯形成錯合物而吸附變弱：含水層的鎘 Kd 依游離 Cd²⁺ 比例調整（常數取自 minteq.v4.dat，已和 PHREEQC 比對）。空白：不調整。標準海水每公斤約含 19,350 mg 氯鹽（Pawlowicz 2010, Ocean Sci. 6:361, Table 3）。",
 "Default: median from Allison & Allison (2005).": "預設：Allison & Allison (2005) 的中位數。",
 "More nutrients mean more algae; their decay uses up oxygen at the lake bottom and feeds methylating bacteria.": "營養鹽越多，藻類越多；藻類分解會耗盡湖底的氧，並供應進行甲基化的細菌。",
 "Which moment the lake results describe: methylation and the forms in lake water. Summer: stratified, seasonal anoxia at the bottom, strong sunlight at the surface. Winter: mixed and oxic. The multi-year budget always runs the seasonal cycle.": "湖泊結果描述的時間點：甲基化和湖水中的化學型態。夏季：分層，底層季節性缺氧，表層日照強。冬季：混合且好氧。多年質量收支一律跑季節循環。",
@@ -955,7 +956,64 @@ window.CHT_ZH = {
 "years since the release started": "釋放開始後的年數",
 "Show as a table": "以表格顯示",
 "Year": "年",
-"Groundwater and river releases are treated as continuous.": "地下水和河川的釋放視為連續釋放。"
+"Groundwater and river releases are treated as continuous.": "地下水和河川的釋放視為連續釋放。",
+"Nearest MOENV well": "最近的環境部監測井",
+"Depth to water": "地下水位深度",
+"from the well top": "自井口量起",
+"Chloride, WRA well": "氯鹽（水利署井）",
+"samples": "筆樣品",
+"nearest MOENV well": "最近的環境部監測井",
+"is": "距離",
+"away; more than 5 km, not used": "，超過 5 km，不採用",
+"Redox class": "氧化還原分級",
+"of": "／",
+"complete samples": "筆完整分析樣品",
+"nearest WRA well with a redox class is": "最近有氧化還原分級的水利署井距離",
+"away; not used": "，不採用",
+"Climate, air, land use": "氣候、空氣、土地利用",
+"not yet in the Taiwan data grid": "台灣資料網格還沒有",
+"MOENV regional groundwater monitoring": "環境部區域性地下水監測",
+"WRA groundwater quality, layer 1": "水利署地下水水質，第一層",
+"Soil values come from the soil map polygon at this point or within 250 m; groundwater values from the nearest monitoring wells within 5 km, background air from the nearest air station within 10 km. Check them against site samples.": "土壤數值取自此點或 250 m 內的土壤圖圖斑；地下水數值取自 5 km 內最近的監測井；背景空氣取自 10 km 內最近的空品測站。請以場址樣品確認。",
+"Nearest air station": "最近的空品測站",
+"PM10, PM2.5 (annual mean)": "PM10、PM2.5（年平均）",
+"Background air": "背景空氣",
+"– (station table not loaded)": "–（測站資料沒有載入）",
+"nearest air station": "最近的空品測站",
+"away; more than 10 km, not used": "，超過 10 km，不採用",
+"MOENV air quality monitoring (AQX_P_07, AQX_P_08)": "環境部空氣品質監測（AQX_P_07、AQX_P_08）",
+"Climate, land use": "氣候、土地利用",
+"mean of complete years": "完整年份平均",
+"no complete year 2023–2025": "2023–2025 沒有完整年份",
+"traffic station: roadside air, not used as background": "交通站：路邊空氣，不當作背景值",
+"Protection zone": "水源保護區",
+"– (layer not loaded)": "–（圖層沒有載入）",
+"MOENV drinking-water source protection zones (data.gov.tw 6377)": "環境部飲用水水源水質保護區（data.gov.tw 6377）",
+"groundwater class 1": "第一類地下水",
+"groundwater class 2": "第二類地下水",
+"outside all protection zones": "不在任何保護區內",
+"Near a drinking-water intake": "取水口一定距離內",
+"Drinking-water source protection zone": "飲用水水源水質保護區",
+"Within the set distance of a drinking-water intake": "飲用水取水口一定距離內",
+"Rainfall": "雨量",
+"Rainfall, nearest CWA station": "雨量（最近的氣象署測站）",
+"CWA 1991–2020 normals (C-B0027-001)": "氣象署 1991–2020 氣候平均值（C-B0027-001）",
+"nearest suitable CWA station": "最近的合適氣象署測站",
+"away; more than 30 km, not used": "，超過 30 km，不採用",
+"Wind, land use": "風、土地利用",
+"Soil values come from the soil map polygon at this point or within 250 m; groundwater values from the nearest monitoring wells within 5 km, background air from the nearest air station within 10 km, rainfall from the nearest CWA station within 30 km and 300 m of height. Check them against site samples.": "土壤數值取自此點或 250 m 內的土壤圖圖斑；地下水數值取自 5 km 內最近的監測井；背景空氣取自 10 km 內最近的空品測站；雨量取自 30 km 內、高度差 300 m 以內最近的氣象署測站。請以場址樣品確認。",
+"Ground height": "地面高程",
+"Chloride in groundwater": "地下水氯鹽",
+"WRA observation wells (32718)": "水利署觀測井（32718）",
+"Fill site values and set the source location": "填入場址數值並設為污染源位置",
+"– (well table not loaded)": "–（監測井資料沒有載入）",
+"MOENV, WRA": "環境部、水利署",
+"drinking-water standard": "飲用水標準",
+"anoxic": "缺氧",
+"suboxic": "次缺氧",
+"sulfidic": "硫化物還原",
+"O2 or NO3 (O2 unknown)": "O2 或 NO3（未測溶氧）",
+"O2 or suboxic (O2 unknown)": "O2 或次缺氧（未測溶氧）"
 },
 "p": [
 [
@@ -1149,6 +1207,22 @@ window.CHT_ZH = {
 [
 "^After (\\d+) years?, the largest share \\((.+?)\\) escaped from lake water as Hg⁰ gas\\. It returns with rain over a wide region, so cutting the input upstream of the lake is the lever\\.$",
 "$1 年後，最大部分（$2）以 Hg⁰ 氣體從湖水逸散，會隨降雨回到大範圍的地面，所以關鍵是在湖泊上游阻斷輸入。"
+],
+[
+"^(\\d+) of (\\d+) samples below (.+?) µg/L, so 0 used \\(below detection, not a measured zero\\)$",
+"$2 筆中 $1 筆低於 $3 µg/L，所以用 0（低於偵測極限，不是測得為零）"
+],
+[
+"^median (.+?) µg/L \\((\\d+) of (\\d+) samples below detection\\)$",
+"中位數 $1 µg/L（$3 筆中 $2 筆低於偵測極限）"
+],
+[
+"^NO3 and (.+), O2 unknown$",
+"NO3 與 $1 還原，未測溶氧"
+],
+[
+"^(.+), O2 unknown$",
+"$1 還原，未測溶氧"
 ]
 ]
 };

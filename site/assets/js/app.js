@@ -884,25 +884,26 @@ const FORMS = {
 };
 const PRESETS = {
   chianan:{label:"Chianan plain (嘉南平原), coastal", note:"Chianan plain: thick clay, silt and fine-sand deposits; shallow, reducing groundwater with naturally high arsenic in the deeper aquifers.",
-    v:{precip:1000, infil:40, pH:7.0, oc:2, fe:4, pstat:"normal", drain:"well", rhob:1.3, theta:0.3, bg:{As:8,Hg:0.1,Pb:30,Cd:0,Ni:0,Cr:0},
-       aq:"porous", wt:3.8, K:3.14e-5, grad:5e-4, thick:15, ne:0.25, gwpH:7.2, redox:"anoxic", aqFe:3, aqOC:0.3, bgGw:{As:50,Hg:0.005,Pb:0.3,Cd:0,Ni:0,Cr:0},
+    v:{precip:1791, infil:40, pH:7.0, oc:2, fe:4, pstat:"normal", drain:"well", rhob:1.3, theta:0.3, bg:{As:8,Hg:0.1,Pb:30,Cd:0,Ni:0,Cr:0},
+       aq:"porous", wt:3.8, K:3.14e-5, grad:5e-4, thick:15, ne:0.25, gwpH:7.2, gwCl:42, redox:"anoxic", aqFe:3, aqOC:0.3, bgGw:{As:50,Hg:0,Pb:0,Cd:0,Ni:0,Cr:0},
        Q:10, ssc:19.7, bgRiv:{As:6.6,Hg:0.002,Pb:0.2,Cd:0,Ni:0,Cr:0}, lakeO2:"seasonal", doc:3, lpH:8.2, so4:"mod", wet:"some", lakeTau:0, troph:"meso", elev:6, pm10:36.2, pm25:16.7},
-    src:{precip:"Chen & Liu (2007) TAO 18:975, p. 983: annual rainfall about 1,000 mm",
+    src:{precip:"CWA 1991–2020 normals (C-B0027-001): mean of Chiayi 1,821.8 and Tainan 1,760.6 mm/yr (decision of 16 Nov 2026; Chen & Liu 2007, p. 983, give about 1,000 mm)",
        aq:"Chen & Liu (2007) p. 977: unconsolidated clay, silt and fine sand",
        wt:"WRA observation wells, layer 1 (data.gov.tw 32717, 32718): median depth 3.8 m over 63 wells, 1994–2025",
        K:"Lu et al. (2008) Hydrogeol. J. 16:139: 3.14×10⁻⁵ to 1.80×10⁻⁴ m/s for the fine-sand aquifer (lower end used; pumping tests about ten times lower)",
        grad:"Plane fit to WRA annual mean water levels, layers 1–4: about 4–6 × 10⁻⁴ towards the west (08 file)",
        ne:"Liu (1995) Radiocarbon 37:531, p. 540: 25 ± 5%, for the neighbouring Choushui fan (borrowed)",
        gwpH:"WRA groundwater quality (data.gov.tw 161086), layer 1: median of 54 wells 7.2, 1993–2025",
+       gwCl:"MOENV regional groundwater monitoring (WQX_P_02), Chianan, 94 wells 2014–2025: median of the well medians 42 mg/L (coastal wells reach about 12,000 mg/L)",
        redox:"WRA 161086, layer 1: most complete samples are Fe(III) reducing (06 file)",
        aqFe:"Chen & Liu (2007) Fig. 9d, p. 989: extractable Fe about 3–15 g/kg, read from the figure (lower end used)",
        aqOC:"Chen & Liu (2007) Fig. 9b, p. 989: sediment organic carbon about 0–0.9%, read from the figure",
-       bgGw:{As:"WRA 161086, layer 1: median of 54 wells 0.05 mg/L (the deeper layers 0.10–0.12 mg/L)", Cd:"WRA 161086, layer 1: median of 54 wells 0 (most records below detection; limit not stated)", Ni:"MOENV WQX_P_02, Chianan, 94 wells 2014–2025: 1,720 of 1,809 samples below 0.005 mg/L, so 0 used", Cr:"MOENV WQX_P_02, Chianan, 94 wells 2014–2025: total Cr 1,714 of 1,809 samples below 0.001 mg/L, so 0 used"},
+       bgGw:{As:"WRA 161086, layer 1: median of 54 wells 0.05 mg/L (the deeper layers 0.10–0.12 mg/L)", Cd:"WRA 161086, layer 1: median of 54 wells 0 (most records below detection; limit not stated)", Ni:"MOENV WQX_P_02, Chianan, 94 wells 2014–2025: 1,720 of 1,809 samples below 0.005 mg/L, so 0 used (below detection, not a measured zero)", Cr:"MOENV WQX_P_02, Chianan, 94 wells 2014–2025: total Cr 1,714 of 1,809 samples below 0.001 mg/L, so 0 used (below detection, not a measured zero)", Hg:"MOENV WQX_P_02, Chianan, 94 wells 2014–2025: 1,805 of 1,809 samples below 0.0003 mg/L, so 0 used (below detection, not a measured zero)", Pb:"MOENV WQX_P_02, Chianan, 94 wells 2014–2025: 1,561 of 1,809 samples below 0.003 mg/L, so 0 used (below detection, not a measured zero)"},
        elev:"WRA observation wells in the plain (data.gov.tw 32718): median ground height 5.9 m",
        pH:"MOA detailed soil map (2016), plain of Chiayi and Tainan (slope 0–5 %): area-weighted median topsoil pH class 6.6–7.3, class midpoint used; classes range from below 5.5 to above 7.9",
        drain:"MOA detailed soil map (2016): 91 % of the plain area well drained",
        ssc:"MOENV river water quality (WQX_P_01), Chiayi and Tainan, 2021–2025: median suspended solids of 69 stations (one record per station, time and item)",
-       bgRiv:{As:"MOENV WQX_P_01, Chiayi and Tainan, 2021–2025: median total As of 45 stations (total, so an upper bound for dissolved; one record per station, time and item)", Cd:"MOENV WQX_P_01, Chiayi and Tainan, 2021–2025: 682 of 719 samples below 0.001 mg/L, so 0 used", Ni:"MOENV WQX_P_01, Chiayi and Tainan, 2021–2025: 467 of 719 samples below 0.005 mg/L, so 0 used", Cr:"MOENV WQX_P_01, Chiayi and Tainan, 2021–2025: total Cr not measured; Cr(VI) 668 of 703 samples below 0.002 mg/L, so 0 used"},
+       bgRiv:{As:"MOENV WQX_P_01, Chiayi and Tainan, 2021–2025: median total As of 45 stations (total, so an upper bound for dissolved; one record per station, time and item)", Cd:"MOENV WQX_P_01, Chiayi and Tainan, 2021–2025: 682 of 719 samples below 0.001 mg/L, so 0 used (below detection, not a measured zero)", Ni:"MOENV WQX_P_01, Chiayi and Tainan, 2021–2025: 467 of 719 samples below 0.005 mg/L, so 0 used (below detection, not a measured zero)", Cr:"MOENV WQX_P_01, Chiayi and Tainan, 2021–2025: total Cr not measured; Cr(VI) 668 of 703 samples below 0.002 mg/L, so 0 used (below detection, not a measured zero)"},
        lakeTau:"No lake downstream: the rivers of the plain flow into the Taiwan Strait (decision of 15 Nov 2026)",
        pm10:"MOENV air quality monthly values (AQX_P_08), stations Puzi, Xingang, Chiayi, Xinying: median of the station means of 2023 and 2025 (2024 lacks August)",
        pm25:"MOENV AQX_P_08, same stations and years as PM10"}},
@@ -923,7 +924,7 @@ const PRESETS = {
        aq:"fractured", wt:5, K:1e-6, grad:0.05, thick:20, ne:0.01, gwpH:6.8, redox:"oxic", aqFe:1, aqOC:0.05, bgGw:{As:3,Hg:0.005,Pb:0.2,Cd:0,Ni:0,Cr:0},
        Q:15, ssc:30, bgRiv:{As:2,Hg:0.002,Pb:0.1,Cd:0,Ni:0,Cr:0}, lakeO2:"perm", doc:2, lpH:7.8, so4:"low", wet:"none", lakeTau:11.9, troph:"eu", elev:650, pm10:9.7, pm25:7.6}}
 };
-const BASE = {preset:"chianan", assumed:[], medium:"soil", form:"", pattern:"continuous", amount:10, duration:20, horizon:100, reactive:100,
+const BASE = {preset:"chianan", assumed:[], gwCl:"", medium:"soil", form:"", pattern:"continuous", amount:10, duration:20, horizon:100, reactive:100,
   area:1000, footprint:10, fdep:"", gwWidth:50, gwThick:5, wellDist:200, depthMix:20, bgReactive:20, loss:0,
   kdSoil:"", kdAq:"", kdSS:"", land:"garden", drink:"yes", gwClass:"2", bw:10, ir:0.25, rba:100, fish:"none", siteName:"",
   eros:"", sdr:10, er:1.5, sbShare:3, sbMobile:12, kdSb:20,
@@ -945,7 +946,7 @@ const EXAMPLES = {
 const TABS = [{id:"rel", label:"Release"},{id:"site", label:"Site & climate"},{id:"air", label:"Air & surface"},{id:"soil", label:"Soil"},{id:"gw", label:"Groundwater"},{id:"sw", label:"River & lake"},{id:"bud", label:"Budget & floods"},{id:"redox", label:"Redox (optional)"},{id:"water", label:"Water analysis (optional)"},{id:"exp", label:"Exposure"}];
 const soilLike = I => I.medium === "soil" || I.medium === "air" || I.medium === "road";
 const FIELDS = [
-  {k:"medium", tab:"rel", label:"Released to", type:"select", structural:true, opts:m => [["soil","Soil surface"],["air","Air (stack or chimney)"]].concat(m === "Pb" ? [["road","Road traffic"]] : [], [["gw","Groundwater, directly"],["river","River"]].concat(["As","Hg","Pb"].includes(m) ? [["glacier","Glacier melt (old deposition)"]] : [])), help:"Where the metal first enters the environment. Road traffic and glacier melt calculate the release from their own inputs."},
+  {k:"medium", tab:"rel", label:"Released to", type:"select", structural:true, opts:m => [["soil","Soil surface"],["air","Air (stack or chimney)"]].concat(m === "Pb" ? [["road","Road traffic"]] : [], [["gw","Groundwater, directly"],["river","River"]]), help:"Where the metal first enters the environment. Road traffic calculates the release from its own inputs."},
   {k:"form", tab:"rel", label:"Chemical form", type:"select", structural:true, opts:m => FORMS[m].map(f => [f.id, f.label]), show:I => I.medium !== "glacier", help:"Sets the default reactive fraction and, for air, the particle sizes."},
   {k:"pattern", tab:"rel", label:"Release pattern", type:"select", structural:true, opts:[["continuous","Continuous"],["pulse","Single event"]], show:I => I.medium === "soil" || I.medium === "air"},
   {k:"amount", tab:"rel", label:I => soilLike(I) && I.pattern === "pulse" ? "Mass released" : "Release rate", unit:I => soilLike(I) && I.pattern === "pulse" ? "kg" : "kg/yr", gt:0, show:I => I.medium !== "road" && I.medium !== "glacier", help:I => soilLike(I) ? "" : "Groundwater and river releases are treated as continuous."},
@@ -1018,6 +1019,7 @@ const FIELDS = [
   {k:"thick", tab:"gw", label:"Aquifer thickness", unit:"m", gt:0},
   {k:"ne", tab:"gw", label:"Effective porosity", unit:"–", gt:0, max:0.6},
   {k:"gwpH", tab:"gw", label:"Groundwater pH", unit:"–", min:3, max:11, src:"MOENV and WRA groundwater monitoring"},
+  {k:"gwCl", tab:"gw", label:"Chloride in groundwater", unit:"mg/L", min:0, max:30000, optional:true, help:"Seawater intrusion raises chloride. Cadmium forms chloride complexes and binds less: its aquifer Kd is scaled by the free Cd²⁺ fraction (constants from minteq.v4.dat, checked against PHREEQC). Empty: no correction. Standard seawater holds about 19,350 mg chloride per kg (Pawlowicz 2010, Ocean Sci. 6:361, Table 3).", src:"MOENV and WRA groundwater monitoring"},
   {k:"redox", tab:"gw", label:"Redox state", type:"select", opts:[["oxic","Oxic"],["suboxic","Suboxic (NO₃⁻ or Mn reducing)"],["anoxic","Anoxic (Fe reducing)"],["sulfidic","Sulfidic"]], src:"O₂, NO₃⁻, Fe²⁺, H₂S from MOENV or WRA monitoring wells, or site wells"},
   {k:"aqFe", tab:"gw", label:"Aquifer Fe oxides", unit:"g/kg", min:0},
   {k:"aqOC", tab:"gw", label:"Aquifer organic carbon", unit:"%", min:0.01, max:20},
@@ -1172,6 +1174,13 @@ function loadExample(refresh){
   if(refresh !== false){ advMetalChanged(); refreshAll(); saveAdv(); }
 }
 const KD_SIG = {As:0.8, Pb:0.7, Hg:0.7, Cd:0.71, Ni:0.70, Cr:0.8};
+// free Cd2+ fraction relative to chloride-free water: CdCl+, CdCl2, CdCl3- (minteq.v4.dat), Davies activities at I = 0.01 + [Cl]
+function cdClFactor(clMg){
+  const c = clMg / 35453, I = 0.01 + c, dav = z => Math.pow(10, -0.509 * z * z * (Math.sqrt(I) / (1 + Math.sqrt(I)) - 0.3 * I));
+  const gM = dav(2), gCl = dav(1), B = [[1.98, 1], [2.6, 0], [2.4, 1]];
+  let s = 0; B.forEach(([lk, z], i) => { s += Math.pow(10, lk) * gM * Math.pow(gCl, i + 1) / dav(z) * Math.pow(c, i + 1); });
+  return 1 / (1 + s);
+}
 function kdFn(m, p){
   let lg;
   if(m === "As"){
@@ -1192,6 +1201,7 @@ function kdFn(m, p){
     lg = 0.49 * p.pH - 0.60;
     if(p.redox === "sulfidic") lg += 0.5;
     lg = clamp(lg, Math.log10(0.44), Math.log10(192000));
+    if(p.cl > 0) lg += Math.log10(cdClFactor(p.cl));   // salty groundwater (step_coast.py)
   } else if(m === "Ni"){
     // Sauvé et al. (2000) Table 2: log Kd = 0.72 pH − 1.75 (SEE 0.70, n 138); Table 1 range 8.9–256,842 L/kg; sulfidic +0.5 (assumption)
     lg = 0.72 * p.pH - 1.75;
@@ -1269,7 +1279,7 @@ function core(I, m, u){
   o.kdCalc = kdFn(m, {pH:I.pH, oc:I.oc, fe:I.fe, pHigh, sp, drain:I.drain});
   const Kd = (kdUser || o.kdCalc) * u.kd;
   const kdSub = (kdUser || kdFn(m, {pH:I.pH, oc:I.oc * 0.3, fe:I.fe, pHigh, sp, drain:I.drain})) * u.kd;
-  o.kdAqCalc = kdFn(m, {pH:I.gwpH, oc:I.aqOC, fe:I.aqFe, sp, redox:I.redox});
+  o.kdAqCalc = kdFn(m, {pH:I.gwpH, oc:I.aqOC, fe:I.aqFe, sp, redox:I.redox, cl:num(I.gwCl) || 0});
   const kdAq = (num(I.kdAq) || o.kdAqCalc) * u.kdAq;
   const kdSS = (num(I.kdSS) || (m === "Cr" && sp === "VI" ? KDSS.CrVI : KDSS[m])) * u.kdSS;
   let Q = I.Q, ssc = I.ssc;
@@ -2170,7 +2180,7 @@ function fieldHTML(f){
   } else {
     ctl = `<input id="${id}" data-k="${f.k}" type="number" step="any" inputmode="decimal" value="${v === "" || v == null ? "" : v}"${f.optional ? ` placeholder="${esc(tr(f.ph || "calculated"))}"` : ""}>`;
   }
-  return `<div class="fld"><label for="${id}">${esc(lab)}${unit ? `<span class="u">${esc(unit)}</span>` : ""}</label>${ctl}${(typeof f.help === "function" ? f.help(INP) : f.help) ? `<span class="help">${esc(tr(typeof f.help === "function" ? f.help(INP) : f.help))}</span>` : ""}${isAssumed(f.k) ? `<span class="asm" title="${esc(tr("No Taiwan source: a generic default. Replace it with site data."))}">${tr("ASSUMED · no Taiwan source")}</span>` : (INP.siteSrc && INP.siteSrc[f.k] ? `<span class="src psrc">${tr("Site source")}: ${esc(INP.siteSrc[f.k])}</span>` : presetSrc(f.k) && INP.preset !== "custom" ? `<span class="src psrc">${tr("Preset source")}: ${esc(presetSrc(f.k))}</span>` : "")}${f.src ? `<span class="src">${esc(f.src)}</span>` : ""}<span class="err" hidden></span></div>`;
+  return `<div class="fld"><label for="${id}">${esc(lab)}${unit ? `<span class="u">${esc(unit)}</span>` : ""}</label>${ctl}${(typeof f.help === "function" ? f.help(INP) : f.help) ? `<span class="help">${esc(tr(typeof f.help === "function" ? f.help(INP) : f.help))}</span>` : ""}${isAssumed(f.k) ? `<span class="asm" title="${esc(tr("No Taiwan source: a generic default. Replace it with site data."))}">${tr("ASSUMED · no Taiwan source")}</span>` : (INP.siteSrc && (INP.siteSrc[f.k + "." + S.metal] || INP.siteSrc[f.k]) ? `<span class="src psrc">${tr("Site source")}: ${esc(INP.siteSrc[f.k + "." + S.metal] || INP.siteSrc[f.k])}</span>` : presetSrc(f.k) && INP.preset !== "custom" ? `<span class="src psrc">${tr("Preset source")}: ${esc(presetSrc(f.k))}</span>` : "")}${f.src ? `<span class="src">${esc(f.src)}</span>` : ""}<span class="err" hidden></span></div>`;
 }
 function renderForm(){
   $("#advTabs").innerHTML = TABS.map(t => `<button role="tab" id="tab-${t.id}" data-tab="${t.id}" aria-selected="${S.tab === t.id}" aria-controls="tp-${t.id}" tabindex="${S.tab === t.id ? 0 : -1}">${esc(t.label)}</button>`).join("");
@@ -2189,7 +2199,7 @@ function selectTab(id, focus){
 function advMetalChanged(){
   if(!FORMS[S.metal].some(f => f.id === INP.form)){ const f = FORMS[S.metal][0]; INP.form = f.id; INP.reactive = f.fr; }
   if(INP.medium === "road" && S.metal !== "Pb") INP.medium = "soil";
-  if(INP.medium === "glacier" && !["As","Hg","Pb"].includes(S.metal)) INP.medium = "soil";
+  if(INP.medium === "glacier") INP.medium = "soil";
   $("#presetSel").value = INP.preset;
   $("#loadExample").textContent = tr("Load example: " + EXAMPLES[S.metal].short);
   renderForm();
@@ -2206,7 +2216,7 @@ function sanitize(src){
   if(!src || typeof src !== "object") return out;
   if(src.preset === "custom") out.preset = "custom";
   if(Array.isArray(src.assumed)) out.assumed = src.assumed.filter(k => typeof k === "string").slice(0, 80);
-  if(src.siteSrc && typeof src.siteSrc === "object") out.siteSrc = Object.fromEntries(Object.entries(src.siteSrc).filter(([k, v]) => typeof v === "string").slice(0, 20).map(([k, v]) => [k, v.slice(0, 200)]));
+  if(src.siteSrc && typeof src.siteSrc === "object") out.siteSrc = Object.fromEntries(Object.entries(src.siteSrc).filter(([k, v]) => typeof v === "string").slice(0, 40).map(([k, v]) => [k, v.slice(0, 200)]));
   if(typeof src.siteName === "string") out.siteName = src.siteName.slice(0, 80);
   for(const f of FIELDS){
     const v = src[f.k]; if(v === undefined) continue;
@@ -2231,7 +2241,7 @@ function schedule(){ clearTimeout(advTimer); advTimer = setTimeout(() => { refre
 const fieldDef = k => FIELDS.find(f => f.k === k);
 function setVal(f, v){ if(f.perMetal) INP[f.k][S.metal] = v; else INP[f.k] = v; }
 function markCustom(k){
-  if(INP.siteSrc && INP.siteSrc[k]){ INP.siteSrc = Object.assign({}, INP.siteSrc); delete INP.siteSrc[k]; }
+  if(INP.siteSrc && (INP.siteSrc[k] || INP.siteSrc[k + "." + S.metal])){ INP.siteSrc = Object.assign({}, INP.siteSrc); delete INP.siteSrc[k]; delete INP.siteSrc[k + "." + S.metal]; }
   if(Array.isArray(INP.assumed)) INP.assumed = INP.assumed.filter(a => a !== k && a !== k + "." + S.metal);
   const box = document.getElementById("f-" + k); const fl = box && box.closest(".fld"); if(fl) fl.querySelectorAll(".asm, .psrc").forEach(e => e.remove());
   if(!SITE_KEYS.has(k) || INP.preset === "custom") return;
@@ -2406,7 +2416,8 @@ function readSite(E, N){
   const ll = twd97ToWgs(E, N);
   const v = k => { const s = GRID.ok ? sampleGrid(k, E, N, 1) : null; return s ? s.v : null; };
   const soil = GRID.ok ? {ph:v("soil_ph"), drain:v("soil_drain"), tex:v("soil_tex"), lime:v("soil_lime")} : null;
-  return {E:Math.round(E), N:Math.round(N), lat:ll.lat, lng:ll.lng, inside:inTaiwan(ll), soil: soil && soil.ph ? soil : null};
+  const gw = nearWells(E, N);
+  return {E:Math.round(E), N:Math.round(N), lat:ll.lat, lng:ll.lng, inside:inTaiwan(ll), soil: soil && soil.ph ? soil : null, gw, air:nearAir(E, N), pz:zonesAt(ll.lat, ll.lng), rain:nearRain(E, N, gw && gw.useH ? gw.h.w[12] : null)};
 }
 const r2 = x => x == null ? null : Math.round(x * 100) / 100;
 function siteRows(s){
@@ -2421,7 +2432,8 @@ function siteRows(s){
     if(so.tex) add("Texture, 0–30 cm", tr(SOIL_TEX[so.tex]), SRC);
     if(so.lime) add("Lime", tr(SOIL_LIME[so.lime]), SRC);
   } else add("Soil", "– (no detailed soil map at this point; it covers mainly farmland)", SRC);
-  add("Climate, aquifer, land use", "– (enter them in the tabs below)", "Taiwan data grid: only the soil map so far");
+  wellRows(s, add); airRows(s, add); rainRows(s, add); pzRows(s, add);
+  add("Wind, land use", "– (enter them in the tabs below)", "not yet in the Taiwan data grid");
   return rows.join("");
 }
 function showSite(s){
@@ -2430,15 +2442,171 @@ function showSite(s){
   if(!s.inside){ info.innerHTML = `<p>${tr("This point is outside Taiwan. Pick a place in Taiwan, Penghu, Kinmen or Matsu.")}</p>`; btn.disabled = true; return; }
   const notes = [];
   if(s.lng < 120) notes.push("Penghu, Kinmen and Matsu officially use TM2 zone 119 (EPSG:3825). This site uses zone 121 everywhere so that distances stay consistent; convert zone-119 coordinates before typing them in.");
-  info.innerHTML = `<table class="sp-table"><tbody>${siteRows(s)}</tbody></table>${notes.length ? `<ul class="sp-notes">${notes.map(n => `<li>${esc(n)}</li>`).join("")}</ul>` : ""}<p class="mini">${tr(s.soil ? "Soil values come from the soil map polygon at this point or within 250 m of it; check them against a site sample." : "The Taiwan data grid has only the soil map so far; this point sets where the source is.")}</p>`;
-  btn.disabled = false; btn.textContent = tr(s.soil ? "Fill soil values and set the source location" : "Use as the source location");
+  info.innerHTML = `<table class="sp-table"><tbody>${siteRows(s)}</tbody></table>${notes.length ? `<ul class="sp-notes">${notes.map(n => `<li>${esc(n)}</li>`).join("")}</ul>` : ""}<p class="mini">${tr("Soil values come from the soil map polygon at this point or within 250 m; groundwater values from the nearest monitoring wells within 5 km, background air from the nearest air station within 10 km, rainfall from the nearest CWA station within 30 km and 300 m of height. Check them against site samples.")}</p>`;
+  btn.disabled = false; btn.textContent = tr(s.soil || (s.gw && (s.gw.useM || s.gw.useR)) || (s.air && s.air.use) || (s.rain && s.rain.use) || !!s.pz ? "Fill site values and set the source location" : "Use as the source location");
   $("#spE").value = s.E; $("#spN").value = s.N;
   if(map){
     if(mapMarker) mapMarker.setLatLng([s.lat, s.lng]);
     else mapMarker = window.L.circleMarker([s.lat, s.lng], {radius:8, className:"sp-marker"}).addTo(map);
   }
 }
-async function pickTwd97(E, N){ await loadGrid(); showSite(readSite(E, N)); }
+// ---- groundwater wells for the site auto-fill (tools/build_well_table.py; rules in dev-tools/site_build/step_wells.py)
+const WELLS = {d:null, ok:null}, WELL_KM = 5;
+async function loadWells(){
+  if(WELLS.ok !== null) return WELLS.ok;
+  try{ WELLS.d = await fetch("data/wells.json").then(r => { if(!r.ok) throw 0; return r.json(); }); WELLS.ok = true; }catch(e){ WELLS.ok = false; }
+  return WELLS.ok;
+}
+function redoxOfClass(c){
+  if(!c) return null;
+  const p = c.replace(/^NO3 and /, "");
+  if(/^CH4gen|^SO4|^Fe\(III\)-SO4/.test(p)) return "sulfidic";
+  if(/^Fe\(III\)/.test(p)) return "anoxic";
+  if(/^Mn\(IV\)|^O2 or/.test(p)) return "suboxic";
+  return null;
+}
+function nearWells(E, N){
+  if(!WELLS.ok) return null;
+  const near = (list, ok) => { let b = null, bd = Infinity; for(const w of list){ if(ok && !ok(w)) continue; const d = Math.hypot(w[2] - E, w[3] - N); if(d < bd){ bd = d; b = w; } } return b ? {w:b, km:bd / 1000} : null; };
+  const m = near(WELLS.d.moenv), r = near(WELLS.d.wra, w => !!redoxOfClass(w[6])), h = near(WELLS.d.wra, w => w[12] != null);
+  return {m, r, h, useM:!!(m && m.km <= WELL_KM), useR:!!(r && r.km <= WELL_KM), useH:!!(h && h.km <= WELL_KM)};
+}
+const kmTxt = km => `${km < 10 ? km.toFixed(1) : Math.round(km)} km`;
+function moenvNote(g){ const w = g.m.w; return `MOENV groundwater well ${w[1]} (${w[0]}), ${kmTxt(g.m.km)} away, ${w[5]} samples ${w[6]}–${w[7]}`; }
+function wraNote(g){ const w = g.r.w; return `WRA layer-1 well ${w[1]} (${w[0]}), ${kmTxt(g.r.km)} away`; }
+function metalNote(v){ return v[0] === 0 && v[2] > v[1] / 2 ? `${v[2]} of ${v[1]} samples below ${v[3] != null ? v[3] + " µg/L" : "detection"}, so 0 used (below detection, not a measured zero)` : `median ${v[0]} µg/L (${v[2]} of ${v[1]} samples below detection)`; }
+function wellRows(s, add){
+  const g = s.gw;
+  if(!g || !g.m){ add("Groundwater", "– (well table not loaded)", "MOENV, WRA"); return; }
+  const SRC_M = "MOENV regional groundwater monitoring", SRC_R = "WRA groundwater quality, layer 1";
+  if(g.useM){
+    const w = g.m.w;
+    add("Nearest MOENV well", `${esc(w[1])}, ${kmTxt(g.m.km)} <span class="mini">(${w[5]} ${tr("samples")}, ${w[6]}–${w[7]})</span>`, SRC_M);
+    if(w[8] != null) add("Groundwater pH", `${w[8]}`, SRC_M);
+    if(w[11] != null) add("Depth to water", `${r2(w[11])} m <span class="mini">(${tr("from the well top")})</span>`, SRC_M);
+    if(w[12][S.metal]) add(`Background ${S.metal} in groundwater`, esc(tr(metalNote(w[12][S.metal]))), SRC_M);
+    if(w[9] != null) add("Chloride", `${w[9]} mg/L`, SRC_M);
+  } else add("Groundwater", `– (${tr("nearest MOENV well")} ${esc(g.m.w[1])} ${tr("is")} ${kmTxt(g.m.km)} ${tr("away; more than 5 km, not used")})`, SRC_M);
+  if(g.useR){
+    const w = g.r.w;
+    add("Redox class", `${esc(tr(w[6]))} → ${tr(redoxOfClass(w[6]))} <span class="mini">(${Math.round(w[7] * 100)}% ${tr("of")} ${w[5]} ${tr("complete samples")}, ${esc(w[1])}, ${kmTxt(g.r.km)})</span>`, SRC_R);
+    if(w[8] != null) add("Chloride, WRA well", `${w[8]} mg/L <span class="mini">(${w[9]} ${tr("samples")})</span>`, SRC_R);
+  } else if(g.r) add("Redox class", `– (${tr("nearest WRA well with a redox class is")} ${kmTxt(g.r.km)} ${tr("away; not used")})`, SRC_R);
+  if(g.useH) add("Ground height", `${g.h.w[12]} m <span class="mini">(${esc(g.h.w[1])}, ${kmTxt(g.h.km)})</span>`, "WRA observation wells (32718)");
+}
+function applyWells(s, src){
+  const g = s.gw; if(!g) return;
+  // drop well notes left from an earlier pick that this point does not refill
+  if(!g.useM) Object.keys(src).forEach(k => { if(k === "gwpH" || k === "wt" || k === "gwCl" || k.startsWith("bgGw.")) delete src[k]; });
+  if(!g.useR) delete src.redox;
+  if(!g.useH) delete src.elev;
+  if(g.useH){ const w = g.h.w; INP.elev = Math.round(w[12]); src.elev = `WRA observation well ${w[1]} (${w[0]}), ${kmTxt(g.h.km)} away: ground height ${w[12]} m (data.gov.tw 32718); no elevation grid yet`; }
+  if(g.useM){
+    const w = g.m.w, here = moenvNote(g);
+    if(w[8] != null){ INP.gwpH = w[8]; src.gwpH = `${here}: median pH ${w[8]}`; }
+    if(w[9] != null){ INP.gwCl = w[9]; src.gwCl = `${here}: median chloride ${w[9]} mg/L`; }
+    if(w[11] != null && w[11] > 0){ INP.wt = r2(w[11]); src.wt = `${here}: median depth to water ${r2(w[11])} m, measured from the well top`; }
+    for(const [m, v] of Object.entries(w[12])){ if(!METALS[m]) continue; INP.bgGw[m] = v[0]; src["bgGw." + m] = `${here}: ${metalNote(v)}`; }
+  }
+  if(g.useR){
+    const w = g.r.w, rx = redoxOfClass(w[6]);
+    if(rx){ INP.redox = rx; src.redox = `${wraNote(g)}: most common class "${w[6]}" in ${Math.round(w[7] * 100)}% of ${w[5]} complete samples (${w[10]}–${w[11]}); mapped by CHemTrace to ${rx}`; }
+  }
+}
+// ---- air-quality stations for the site auto-fill (tools/build_air_table.py)
+const AIR = {d:null, ok:null}, AIR_KM = 10;
+async function loadAir(){
+  if(AIR.ok !== null) return AIR.ok;
+  try{ AIR.d = await fetch("data/air.json").then(r => { if(!r.ok) throw 0; return r.json(); }); AIR.d.stations.forEach(s => { const p = wgsToTwd97(s[4], s[5]); s.E = p.E; s.N = p.N; }); AIR.ok = true; }catch(e){ AIR.ok = false; }
+  return AIR.ok;
+}
+function nearAir(E, N){
+  if(!AIR.ok) return null;
+  let b = null, bd = Infinity;
+  for(const s of AIR.d.stations){ if(s[3] === "交通站" || s[6] == null) continue; const d = Math.hypot(s.E - E, s.N - N); if(d < bd){ bd = d; b = s; } }
+  return b ? {s:b, km:bd / 1000, use:bd / 1000 <= AIR_KM} : null;
+}
+function airRows(s, add){
+  const a = s.air, SRC = "MOENV air quality monitoring (AQX_P_07, AQX_P_08)";
+  if(!a){ add("Background air", "– (station table not loaded)", SRC); return; }
+  const t = a.s;
+  if(a.use){
+    add("Nearest air station", `${esc(t[1])} <span class="mini">(${esc(t[3])}, ${esc(t[2])})</span>, ${kmTxt(a.km)}`, SRC);
+    add("PM10, PM2.5 (annual mean)", `${t[6]}, ${t[7] != null ? t[7] : "–"} µg/m³ <span class="mini">(${t[8].replace("/", ", ")})</span>`, SRC);
+  } else add("Background air", `– (${tr("nearest air station")} ${esc(t[1])} ${tr("is")} ${kmTxt(a.km)} ${tr("away; more than 10 km, not used")})`, SRC);
+}
+function applyAir(s, src){
+  const a = s.air; if(!a) return;
+  if(!a.use){ delete src.pm10; delete src.pm25; return; }
+  const t = a.s, here = `MOENV air station ${t[1]} (${t[0]}, ${t[3]}), ${kmTxt(a.km)} away: mean of the complete years ${t[8].replace("/", " and ")} of monthly values (AQX_P_08)`;
+  INP.pm10 = t[6]; src.pm10 = `${here}, PM10 ${t[6]} µg/m³`;
+  if(t[7] != null){ INP.pm25 = t[7]; src.pm25 = `${here}, PM2.5 ${t[7]} µg/m³`; }
+}
+function airPopup(t){
+  return `<b>${esc(t[1])}</b> <span class="mini">(MOENV ${esc(t[0])}, ${esc(t[3])}, ${esc(t[2])})</span>`
+    + (t[6] != null ? `<br>PM10 ${t[6]} µg/m³ · PM2.5 ${t[7] != null ? t[7] : "–"} µg/m³ <span class="mini">(${tr("mean of complete years")} ${t[8].replace("/", ", ")})</span>` : `<br>${tr("no complete year 2023–2025")}`)
+    + (t[3] === "交通站" ? `<br><span class="mini">${tr("traffic station: roadside air, not used as background")}</span>` : "");
+}
+// ---- drinking-water source protection zones (tools/build_protection_layer.py): map layer and groundwater class
+const PZ = {d:null, ok:null};
+async function loadPz(){
+  if(PZ.ok !== null) return PZ.ok;
+  try{ PZ.d = await fetch("data/protection.geojson").then(r => { if(!r.ok) throw 0; return r.json(); }); PZ.ok = true; }catch(e){ PZ.ok = false; }
+  return PZ.ok;
+}
+function inRing(x, y, ring){ let ins = false; for(let i = 0, j = ring.length - 1; i < ring.length; j = i++){ const xi = ring[i][0], yi = ring[i][1], xj = ring[j][0], yj = ring[j][1]; if(((yi > y) !== (yj > y)) && x < (xj - xi) * (y - yi) / (yj - yi) + xi) ins = !ins; } return ins; }
+function inGeom(x, y, g){ const polys = g.type === "MultiPolygon" ? g.coordinates : [g.coordinates]; return polys.some(p => inRing(x, y, p[0]) && !p.slice(1).some(h => inRing(x, y, h))); }
+function zonesAt(lat, lng){ return PZ.ok ? PZ.d.features.filter(f => inGeom(lng, lat, f.geometry)).map(f => f.properties) : null; }
+function pzRows(s, add){
+  const z = s.pz, SRC = "MOENV drinking-water source protection zones (data.gov.tw 6377)";
+  if(!z){ add("Protection zone", "– (layer not loaded)", SRC); return; }
+  const pzs = z.filter(p => p.type === "保護區"), ds = z.filter(p => p.type !== "保護區");
+  add("Protection zone", pzs.length ? `${pzs.map(p => esc(p.name)).join("; ")} → ${tr("groundwater class 1")}` : `${tr("outside all protection zones")} → ${tr("groundwater class 2")}`, SRC);
+  if(ds.length) add("Near a drinking-water intake", ds.map(p => esc(p.name)).join("; "), SRC);
+}
+function applyPz(s, src){
+  const z = s.pz; if(!z) return;
+  const pzs = z.filter(p => p.type === "保護區");
+  INP.gwClass = pzs.length ? "1" : "2";
+  src.gwClass = pzs.length ? `Inside ${pzs.map(p => p.name).join("; ")} (MOENV protection zones, data.gov.tw 6377, file of 2026-07-20; outlines simplified to about 20 m): class 1, groundwater within a drinking-water source protection zone`
+    : "Outside all drinking-water source protection zones (MOENV, data.gov.tw 6377, file of 2026-07-20; outlines simplified to about 20 m): class 2";
+}
+function pzPopup(p){ return `<b>${esc(p.name)}</b><br>${esc(p.type === "保護區" ? tr("Drinking-water source protection zone") : tr("Within the set distance of a drinking-water intake"))}<br><span class="mini">${esc(p.county)} · ${esc(p.basin)}${p.intake ? " · " + esc(p.intake) : ""}<br>${esc(p.desc)}</span>`; }
+async function pzLayer(){
+  if(!(await loadPz()) || !SP.map) return null;
+  if(!SP.ov.pz) SP.ov.pz = window.L.geoJSON(PZ.d, {style:f => f.properties.type === "保護區" ? {color:"#1F6F9F", weight:1.2, fillColor:"#5AA9D6", fillOpacity:0.18} : {color:"#7A5C9E", weight:1, dashArray:"4 3", fillColor:"#B79BD6", fillOpacity:0.12},
+    onEachFeature:(f, l) => l.bindPopup(() => pzPopup(f.properties))});
+  return SP.ov.pz;
+}
+// ---- rainfall normals (tools/build_rain_table.py): CWA 1991-2020, 27 staffed stations
+const RAIN = {d:null, ok:null}, RAIN_KM = 30, RAIN_DZ = 300;
+async function loadRain(){
+  if(RAIN.ok !== null) return RAIN.ok;
+  try{ RAIN.d = await fetch("data/rain.json").then(r => { if(!r.ok) throw 0; return r.json(); }); RAIN.d.stations.forEach(s => { const p = wgsToTwd97(s[2], s[3]); s.E = p.E; s.N = p.N; }); RAIN.ok = true; }catch(e){ RAIN.ok = false; }
+  return RAIN.ok;
+}
+function nearRain(E, N, elev){
+  if(!RAIN.ok) return null;
+  const ok = s => elev != null ? Math.abs(s[4] - elev) <= RAIN_DZ : s[4] <= RAIN_DZ;
+  let b = null, bd = Infinity;
+  for(const s of RAIN.d.stations){ if(!ok(s)) continue; const d = Math.hypot(s.E - E, s.N - N); if(d < bd){ bd = d; b = s; } }
+  return b ? {s:b, km:bd / 1000, use:bd / 1000 <= RAIN_KM, elevKnown:elev != null} : null;
+}
+function rainRows(s, add){
+  const a = s.rain, SRC = "CWA 1991–2020 normals (C-B0027-001)";
+  if(!a){ add("Rainfall", "– (station table not loaded)", SRC); return; }
+  const t = a.s;
+  if(a.use) add("Rainfall, nearest CWA station", `${Math.round(t[5]).toLocaleString("en-US")} mm/yr <span class="mini">(${esc(t[1])}, ${kmTxt(a.km)}, ${t[4]} m, ${t[6]})</span>`, SRC);
+  else add("Rainfall", `– (${tr("nearest suitable CWA station")} ${esc(t[1])} ${tr("is")} ${kmTxt(a.km)} ${tr("away; more than 30 km, not used")})`, SRC);
+}
+function applyRain(s, src){
+  const a = s.rain; if(!a) return;
+  if(!a.use){ delete src.precip; return; }
+  const t = a.s;
+  INP.precip = Math.round(t[5]);
+  src.precip = `CWA station ${t[1]} (${t[0]}), ${kmTxt(a.km)} away, ${t[4]} m: 1991–2020 normal ${t[5]} mm/yr (C-B0027-001; ${t[6]}); ${a.elevKnown ? "station within 300 m of the site's height" : "site height unknown, lowland stations only"}`;
+}
+async function pickTwd97(E, N){ await Promise.all([loadGrid(), loadWells(), loadAir(), loadPz(), loadRain()]); showSite(readSite(E, N)); }
 function applySite(){
   const s = SITE; if(!s || !s.inside) return;
   INP.srcE = s.E; INP.srcN = s.N; INP.siteName = `E ${s.E}, N ${s.N}`; SP.fitKey = "";
@@ -2447,8 +2615,9 @@ function applySite(){
     const mid = phMid(so.ph);
     if(mid != null){ INP.pH = mid; src.pH = `${here}: topsoil pH class ${phTxt(so.ph)}, ${SOIL_PH[so.ph][0] == null || SOIL_PH[so.ph][1] == null ? "class limit" : "class midpoint"} used`; }
     if(so.drain){ INP.drain = SOIL_DRAIN[so.drain][1]; src.drain = `${here}: drainage ${SOIL_DRAIN[so.drain][0]} (mapped by CHemTrace to the water regime)`; }
-    if(Array.isArray(INP.assumed)) INP.assumed = INP.assumed.filter(k => !(k in src));
   }
+  { const src = INP.siteSrc = Object.assign({}, INP.siteSrc); applyWells(s, src); applyAir(s, src); applyRain(s, src); applyPz(s, src);
+    if(Array.isArray(INP.assumed)) INP.assumed = INP.assumed.filter(k => !(k in src)); }
   renderForm(); refreshAll(); saveAdv();
   $("#spApply").textContent = tr("Source location set ✓");
   setTimeout(() => { $("#spApply").textContent = tr("Use as the source location"); }, 1800);
@@ -2638,7 +2807,8 @@ function initSpreadMap(){
   });
   document.querySelectorAll("#spLayers input[data-ov]").forEach(cb => cb.addEventListener("change", () => {
     const leg = document.getElementById("leg-" + cb.dataset.ov); if(leg) leg.hidden = !cb.checked;
-    const l = SP.ov[cb.dataset.ov]; if(l){ if(cb.checked) l.addTo(SP.map); else SP.map.removeLayer(l); }
+    const go = l => { if(l){ if(cb.checked) l.addTo(SP.map); else SP.map.removeLayer(l); } };
+    if(cb.dataset.ov.startsWith("wells")) wellLayer(cb.dataset.ov).then(go); else if(cb.dataset.ov === "air") airLayer().then(go); else if(cb.dataset.ov === "pz") pzLayer().then(go); else go(SP.ov[cb.dataset.ov]);
   }));
   $("#spTerrDir").addEventListener("change", () => drawSpread());
   $("#spT").addEventListener("input", e => { SP.frame = Number(e.target.value); drawSpread(); });
@@ -2740,7 +2910,60 @@ function depFrame(t){
   const f = {t, cells, rB, rP: Math.max(rP, rB), dirB, lim:D.lim, limName:D.limName};
   D.frames[t] = f; return f;
 }
+// ---- spread map: well layers (support-layer drawer)
+const REDOX_COL = {oxic:"#2F7D9E", suboxic:"#7FA35A", anoxic:"#C08A2E", sulfidic:"#7A4E8F"};
+function moenvPopup(w){
+  const m = S.metal, v = w[12][m], lim = LIM.drink[m];
+  return `<b>${esc(w[1])}</b> <span class="mini">(MOENV ${esc(w[0])}, ${esc(tr(w[4]))})</span><br>${w[5]} ${tr("samples")}, ${w[6]}–${w[7]}`
+    + (v ? `<br>${esc(tr(`Background ${m} in groundwater`))}: ${esc(tr(metalNote(v)))}${lim != null ? ` <span class="mini">(${tr("drinking-water standard")} ${lim} µg/L)</span>` : ""}` : "")
+    + (w[8] != null ? `<br>pH ${w[8]}` : "") + (w[9] != null ? ` · ${tr("Chloride")} ${w[9]} mg/L` : "") + (w[11] != null ? `<br>${tr("Depth to water")} ${r2(w[11])} m (${tr("from the well top")})` : "");
+}
+function wraPopup(w){
+  const rx = redoxOfClass(w[6]);
+  return `<b>${esc(w[1])}</b> <span class="mini">(WRA ${esc(w[0])}, ${esc(tr(w[4]))})</span>`
+    + (w[6] ? `<br>${tr("Redox class")}: ${esc(tr(w[6]))}${rx ? ` → ${tr(rx)}` : ""} <span class="mini">(${Math.round(w[7] * 100)}% ${tr("of")} ${w[5]} ${tr("complete samples")}, ${w[10]}–${w[11]})</span>` : "")
+    + (w[8] != null ? `<br>${tr("Chloride")} ${w[8]} mg/L <span class="mini">(${w[9]} ${tr("samples")})</span>` : "");
+}
+async function wellLayer(key){
+  if(!(await loadWells()) || !SP.map) return null;
+  const LF = window.L;
+  if(key === "wellsM" && (!SP.ov.wellsM || SP.wellMetal !== S.metal)){
+    if(SP.ov.wellsM && SP.map.hasLayer(SP.ov.wellsM)) SP.map.removeLayer(SP.ov.wellsM);
+    const m = S.metal, lim = LIM.drink[m], g = LF.layerGroup();
+    WELLS.d.moenv.forEach(w => {
+      const v = w[12][m], over = v && lim != null && v[0] > lim, ll = twd97ToWgs(w[2], w[3]);
+      LF.circleMarker([ll.lat, ll.lng], {renderer:SP.canvas, radius:over ? 6 : 4.5, weight:1, color:"#fff", fillColor:over ? "#C0392B" : "#4A5A6A", fillOpacity:0.9})
+        .bindPopup(() => moenvPopup(w)).addTo(g);
+    });
+    SP.ov.wellsM = g; SP.wellMetal = m;
+  }
+  if(key === "wellsR" && !SP.ov.wellsR){
+    const g = LF.layerGroup();
+    WELLS.d.wra.forEach(w => {
+      const ll = twd97ToWgs(w[2], w[3]), rx = redoxOfClass(w[6]);
+      LF.circleMarker([ll.lat, ll.lng], {renderer:SP.canvas, radius:4.5, weight:1.5, color:rx ? REDOX_COL[rx] : "#888", fillColor:"#fff", fillOpacity:0.85})
+        .bindPopup(() => wraPopup(w)).addTo(g);
+    });
+    SP.ov.wellsR = g;
+  }
+  return SP.ov[key];
+}
+async function airLayer(){
+  if(!(await loadAir()) || !SP.map) return null;
+  if(!SP.ov.air){
+    const LF = window.L, g = LF.layerGroup();
+    AIR.d.stations.forEach(t => { const tra = t[3] === "交通站";
+      LF.circleMarker([t[4], t[5]], {renderer:SP.canvas, radius:5, weight:1.5, color:tra ? "#999" : "#2F6FB0", fillColor:tra ? "#fff" : "#9CC3E6", fillOpacity:0.9}).bindPopup(() => airPopup(t)).addTo(g); });
+    SP.ov.air = g;
+  }
+  return SP.ov.air;
+}
+function refreshWellLayer(){
+  const cb = document.querySelector('#spLayers input[data-ov="wellsM"]');
+  if(cb && cb.checked && SP.wellMetal !== S.metal) wellLayer("wellsM").then(l => { if(l && cb.checked) l.addTo(SP.map); });
+}
 function drawSpread(){
+  refreshWellLayer();
   if(!SP.map || !RES) return;
   renderSpreadStatus();
   const LF = window.L, I = INP, m = S.metal, t = FRAMES[SP.frame], c = spreadSetup(), s = srcOf(), T = SP.terrain;
@@ -3045,6 +3268,7 @@ window.SMP = window.CHemTrace = Object.freeze({
       ok("Cd Kd follows Sauvé et al. (2000): log Kd = 0.49·pH − 0.60", Math.abs(Math.log10(kdFn("Cd", {pH:6})) - (0.49 * 6 - 0.60)) < 1e-9, "pH 6");
       ok("Ni Kd follows Sauvé et al. (2000): log Kd = 0.72·pH − 1.75", Math.abs(Math.log10(kdFn("Ni", {pH:6})) - (0.72 * 6 - 1.75)) < 1e-9, "pH 6");
       ok("Cr Kd: Cr(VI) log 1.1, reduced to Cr(III) log 3.9 in an anoxic aquifer (Allison & Allison 2005)", Math.abs(Math.log10(kdFn("Cr", {sp:"VI", pH:7})) - 1.1) < 1e-9 && Math.abs(Math.log10(kdFn("Cr", {sp:"VI", pH:7, redox:"anoxic"})) - 3.9) < 1e-9, "oxic and anoxic");
+      ok("Cd aquifer Kd with 12,350 mg/L chloride is about 0.05 of the chloride-free value (PHREEQC check: 0.044)", Math.abs(kdFn("Cd", {pH:7, cl:12350}) / kdFn("Cd", {pH:7}) - 0.051) < 0.002, "free-ion fraction");
       ok("Pb Kd follows log Kd = 1.99 + 0.42·pH", Math.abs(Math.log10(kdFn("Pb", {pH:6.5})) - (1.99 + 0.42 * 6.5)) < 1e-9, "pH 6.5");
       ok("Hg Kd equals Koc × organic carbon fraction", Math.abs(kdFn("Hg", {oc:2}) / (Math.pow(10, 5.5) * 0.02) - 1) < 1e-9, "2% organic carbon");
       const lo = kdFn("As", {fe:0.01, pH:12, drain:"perm", redox:"anoxic", sp:"III", pHigh:true}), hi = kdFn("Pb", {pH:14});

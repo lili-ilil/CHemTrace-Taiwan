@@ -11,6 +11,7 @@ Sources: 05, 06, 08, 10 files and data/processed (see the src texts below). Valu
   wt   3.8 m  = median over 63 WRA layer-1 wells of (ground height − mean annual water level), 1994–2025 (wra_level_wells.csv,
               wra_wells.csv); assumes the level field is an elevation (noted in 08)
   elev 6 m    = median ground height of the WRA wells in the plain, 5.9 m over 159 wells (44 wells listed as 0 m left out)
+  precip = CWA C-B0027-001 (data/grid/rain.json, tools/build_rain_table.py)
   pH, drain, ssc, bgRiv.As, pm10, pm25 = tools/process_chianan_extra.py (data/processed/chianan_extra_summary.md)
   lakeTau 0  = decision of 15 Nov 2026 (no lake downstream). The lake inputs still feed the Hg methylation index and stay ASSUMED.
   gwpH 7.2, bgGw As 50 µg/L = medians of the per-well medians, WRA 161086, layer 1, 54 wells, 1993–2025
@@ -18,16 +19,17 @@ Sources: 05, 06, 08, 10 files and data/processed (see the src texts below). Valu
 JS, CSS = "assets/js/app.js", "assets/css/styles.css"
 
 CHIANAN = r'''  chianan:{label:"Chianan plain (嘉南平原), coastal", note:"Chianan plain: thick clay, silt and fine-sand deposits; shallow, reducing groundwater with naturally high arsenic in the deeper aquifers.",
-    v:{precip:1000, infil:40, pH:7.0, oc:2, fe:4, pstat:"normal", drain:"well", rhob:1.3, theta:0.3, bg:{As:8,Hg:0.1,Pb:30},
-       aq:"porous", wt:3.8, K:3.14e-5, grad:5e-4, thick:15, ne:0.25, gwpH:7.2, redox:"anoxic", aqFe:3, aqOC:0.3, bgGw:{As:50,Hg:0.005,Pb:0.3},
+    v:{precip:1791, infil:40, pH:7.0, oc:2, fe:4, pstat:"normal", drain:"well", rhob:1.3, theta:0.3, bg:{As:8,Hg:0.1,Pb:30},
+       aq:"porous", wt:3.8, K:3.14e-5, grad:5e-4, thick:15, ne:0.25, gwpH:7.2, gwCl:42, redox:"anoxic", aqFe:3, aqOC:0.3, bgGw:{As:50,Hg:0,Pb:0},
        Q:10, ssc:19.7, bgRiv:{As:6.6,Hg:0.002,Pb:0.2}, lakeO2:"seasonal", doc:3, lpH:8.2, so4:"mod", wet:"some", lakeTau:0, troph:"meso", elev:6, pm10:36.2, pm25:16.7},
-    src:{precip:"Chen & Liu (2007) TAO 18:975, p. 983: annual rainfall about 1,000 mm",
+    src:{precip:"CWA 1991–2020 normals (C-B0027-001): mean of Chiayi 1,821.8 and Tainan 1,760.6 mm/yr (decision of 16 Nov 2026; Chen & Liu 2007, p. 983, give about 1,000 mm)",
        aq:"Chen & Liu (2007) p. 977: unconsolidated clay, silt and fine sand",
        wt:"WRA observation wells, layer 1 (data.gov.tw 32717, 32718): median depth 3.8 m over 63 wells, 1994–2025",
        K:"Lu et al. (2008) Hydrogeol. J. 16:139: 3.14×10⁻⁵ to 1.80×10⁻⁴ m/s for the fine-sand aquifer (lower end used; pumping tests about ten times lower)",
        grad:"Plane fit to WRA annual mean water levels, layers 1–4: about 4–6 × 10⁻⁴ towards the west (08 file)",
        ne:"Liu (1995) Radiocarbon 37:531, p. 540: 25 ± 5%, for the neighbouring Choushui fan (borrowed)",
        gwpH:"WRA groundwater quality (data.gov.tw 161086), layer 1: median of 54 wells 7.2, 1993–2025",
+       gwCl:"MOENV regional groundwater monitoring (WQX_P_02), Chianan, 94 wells 2014–2025: median of the well medians 42 mg/L (coastal wells reach about 12,000 mg/L)",
        redox:"WRA 161086, layer 1: most complete samples are Fe(III) reducing (06 file)",
        aqFe:"Chen & Liu (2007) Fig. 9d, p. 989: extractable Fe about 3–15 g/kg, read from the figure (lower end used)",
        aqOC:"Chen & Liu (2007) Fig. 9b, p. 989: sediment organic carbon about 0–0.9%, read from the figure",

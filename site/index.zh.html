@@ -308,13 +308,17 @@
           <div class="sp-drawer" id="spDrawer" role="region" aria-labelledby="spDrawerTitle">
             <div class="sp-drawer-hd"><h4 id="spDrawerTitle">輔助圖層</h4><button type="button" class="sp-drawer-x" id="spDrawerX" aria-label="Close support layers">×</button></div>
               <fieldset class="sp-layers" id="spLayers"><legend class="sr-only">輔助圖層</legend>
-                <p class="mini">Taiwan layers are being added: drinking-water source protection zones, groundwater pollution control sites, the arsenic potential areas and geology (step 2e). The Swiss layers of the original site do not apply here.</p>
+                <p class="mini">監測井、空品測站和水源保護區圖層已可使用。之後加入：地下水污染管制區、砷潛勢範圍和地質（步驟 2e）。</p>
+                <label><input type="checkbox" data-ov="wellsM" autocomplete="off"><span>環境部地下水監測井 <small>紅色：所選金屬的中位數超過飲用水標準；點選井可看數值</small></span></label>
+                <label><input type="checkbox" data-ov="wellsR" autocomplete="off"><span>水利署觀測井（第一層） <small>顏色：氧化還原分級；點選井可看氯鹽</small></span></label>
+                <label><input type="checkbox" data-ov="air" autocomplete="off"><span>環境部空品測站 <small>PM10 和 PM2.5，2023–2025 完整年份的平均；灰色：交通站</small></span></label>
+                <label><input type="checkbox" data-ov="pz" autocomplete="off"><span>飲用水水源水質保護區 <small>藍色：保護區（第一類地下水）；紫色虛線：取水口一定距離</small></span></label>
                 <label><input type="checkbox" id="spTerrDir" checked autocomplete="off"><span>地形方向箭頭 <small>僅供替代，不是量測值；需要高程網格（規劃中）</small></span></label>
               </fieldset>
           </div>
         </div>
         <div class="sp-side">
-          <button type="button" class="sp-layers-btn" id="spLayersBtn" aria-expanded="false" aria-controls="spDrawer"><span class="chev" aria-hidden="true">‹</span><span>輔助圖層<small>台灣圖層準備中</small></span><span class="cnt" id="spLayersCnt"></span></button>
+          <button type="button" class="sp-layers-btn" id="spLayersBtn" aria-expanded="false" aria-controls="spDrawer"><span class="chev" aria-hidden="true">‹</span><span>輔助圖層<small>監測井、空品測站、水源保護區</small></span><span class="cnt" id="spLayersCnt"></span></button>
           <ul class="sp-legend" aria-label="Map legend">
             <li><i class="lg-fill crit"></i>超過標準（最佳估計）</li>
             <li><i class="lg-fill warn"></i>可能超過（至少 10% 的模擬）</li>

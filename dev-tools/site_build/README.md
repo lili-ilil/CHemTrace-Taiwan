@@ -13,7 +13,7 @@ python dev-tools/site_build/build_site.py
 它會：
 
 1. 讀 `base/docs` 的所有檔案，但不含瑞士的 1 km 資料網格（`data/grid.bin`、`data/grid.json`）。
-2. 依序套用 `STEPS` 裡的修改檔（目前是 `step_2a.py`、`step_metals.py`、`step_2c.py`、`step_2f.py`、`step_cd.py`、`step_ni.py`、`step_cr.py`、`step_explore.py`、`step_sources.py`、`step_help_tw.py`、`step_2b.py`、`step_zh_dyn.py`、`step_grid.py`）。
+2. 依序套用 `STEPS` 裡的修改檔（目前是 `step_2a.py`、`step_metals.py`、`step_2c.py`、`step_2f.py`、`step_cd.py`、`step_ni.py`、`step_cr.py`、`step_coast.py`、`step_explore.py`、`step_sources.py`、`step_help_tw.py`、`step_2b.py`、`step_zh_dyn.py`、`step_grid.py`、`step_wells.py`）。
 3. 寫進 `site/`。只覆寫內容有變的檔案，不會刪除任何檔案。
 
 每一條修改都寫明「要取代的原文」和「應該出現幾次」。如果 `base/` 改了、某條修改對不上，程式會停下來並說明是哪一條，不會默默跳過。
@@ -27,6 +27,8 @@ python dev-tools/site_build/build_site.py
 | `step_cd.py` | 新增鎘：Kd（Sauvé et al. 2000）、懸浮物 Kd（Allison & Allison 2005）、台灣標準、EFSA 2011 TWI、探索模式 13 個介質的中英文字；出處和假設寫在檔案開頭 |
 | `step_ni.py` | 新增鎳，結構同 `step_cd.py`：Kd（Sauvé et al. 2000）、懸浮物 Kd、台灣標準、EFSA 2020 TDI |
 | `step_cr.py` | 新增鉻，分 Cr(III) 和 Cr(VI)：化學型態帶價態，Cr(VI) 在長期淹水土壤和缺氧含水層視為還原成 Cr(III)；Kd（Allison & Allison 2005 Table 3）、台灣總鉻標準、Cr(III) TDI（EFSA 2014）和 Cr(VI) TDI（FSCJ 2019） |
+| `step_coast.py` | 台灣地理：移除冰河釋放；嘉南地下水 Hg、Pb 背景值設 0（低於偵測極限）；輔助圖層的監測井勾選項。之後放水庫或海洋、沿海效應 |
+| `step_wells.py` | 選址自動填入和擴散地圖圖層：地下水（5 km 內監測井，`tools/build_well_table.py`）、背景空氣（10 km 內空品站，`tools/build_air_table.py`）、地下水分類（水源保護區，`tools/build_protection_layer.py`）、海拔（觀測井地面高程） |
 | `step_2f.py` | 地區預設：嘉南平原（每個數值附出處，沒有出處的標 ASSUMED）；瑞士預設保留給 selfTest |
 | `step_explore.py` | 探索模式：瑞士註記換成有出處的台灣註記或移除，瑞士地名改成通用說法 |
 | `step_sources.py` | 首頁參考資料：台灣法規、資料、文獻；保留模型仍用的國際方法參考 |

@@ -3,8 +3,8 @@ Terms follow 11_術語對照表.md. Imported by zh_strings.py.
 """
 HELP = {
     # release
-    "Where the metal first enters the environment. Road traffic and glacier melt calculate the release from their own inputs.":
-        "金屬最先進入環境的地方。道路交通和冰河融化會由各自的輸入值計算釋放量。",
+    "Where the metal first enters the environment. Road traffic calculates the release from its own inputs.":
+        "金屬最先進入環境的地方。道路交通會由自己的輸入值計算釋放量。",
     "Sets the default reactive fraction and, for air, the particle sizes.": "決定預設的可反應比例；空氣排放時也決定粒徑分布。",
     "Average daily traffic, from road traffic counts.": "平均每日交通量，取自道路交通量調查。",
     "Each heavy vehicle counts as four cars (assumption).": "每輛重型車輛以四輛小客車計（假設）。",
@@ -73,6 +73,8 @@ HELP = {
     "Gravel 1e-3 to 1e-2; fractured rock 1e-7 to 1e-5.": "礫石 1e-3 到 1e-2；裂隙岩 1e-7 到 1e-5。",
     "Recommended: read it from groundwater-level contours of nearby WRA observation wells or from your own wells, or click Set direction on the spread map.":
         "建議：由附近水利署觀測井或自己的井的地下水位等值線判讀，或在擴散地圖上按「設定方向」。",
+    "Seawater intrusion raises chloride. Cadmium forms chloride complexes and binds less: its aquifer Kd is scaled by the free Cd²⁺ fraction (constants from minteq.v4.dat, checked against PHREEQC). Empty: no correction. Standard seawater holds about 19,350 mg chloride per kg (Pawlowicz 2010, Ocean Sci. 6:361, Table 3).":
+        "海水入侵會提高氯鹽。鎘會和氯形成錯合物而吸附變弱：含水層的鎘 Kd 依游離 Cd²⁺ 比例調整（常數取自 minteq.v4.dat，已和 PHREEQC 比對）。空白：不調整。標準海水每公斤約含 19,350 mg 氯鹽（Pawlowicz 2010, Ocean Sci. 6:361, Table 3）。",
     # river and lake
     "Default: median from Allison & Allison (2005).": "預設：Allison & Allison (2005) 的中位數。",
     "More nutrients mean more algae; their decay uses up oxygen at the lake bottom and feeds methylating bacteria.": "營養鹽越多，藻類越多；藻類分解會耗盡湖底的氧，並供應進行甲基化的細菌。",
